@@ -43,9 +43,14 @@ class Daftar extends StatelessWidget {
                       hintStyle: TextStyle(color: Colors.white)),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 1, right: 250, top: 10, bottom: 0),
+              const Padding(
+                padding:
+                    EdgeInsets.only(left: 1, right: 250, top: 10, bottom: 0),
+                child: IconButton(
+                  onPressed: null,
+                  icon: Icon(Icons.male),
+                  color: Colors.cyan,
+                ),
               )
             ],
           ),

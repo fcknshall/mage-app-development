@@ -1,6 +1,6 @@
 # quarantipss
 
-A new Flutter project.
+Aplikasi Quarantips
 
 ## Getting Started
 

@@ -20,10 +20,35 @@ class Daftar extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              
+              const Padding(
+                  padding:
+                      EdgeInsets.only(left: 1, right: 250, top: 100, bottom: 0),
+                  child: Text(
+                    "Nama Lengkap",
+                    style: TextStyle(color: Colors.white),
+                  )),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 10, bottom: 0),
+                child: TextFormField(
+                  cursorColor: Colors.white,
+                  style: const TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                      filled: true,
+                      fillColor: Color.fromRGBO(38, 61, 188, 100),
+                      border: OutlineInputBorder(borderSide: BorderSide()),
+                      hintText: 'Masukan Nama Anda',
+                      hintStyle: TextStyle(color: Colors.white)),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 1, right: 250, top: 10, bottom: 0),
+              )
             ],
-          )
-          )
+          ),
         ),
       ),
     );

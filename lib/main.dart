@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:quarantipss/loginPage/daftar.dart';
-import 'package:quarantipss/loginPage/login.dart';
+import 'package:Quarantips/loginPage/daftar.dart';
+import 'package:Quarantips/loginPage/login.dart';
 
 void main() {
   runApp(MaterialApp(

@@ -3,14 +3,17 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:quarantips/loginPage/daftar.dart';
 import 'package:quarantips/loginPage/login.dart';
+//import 'covid19.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: "Quarantips",
-    home: const MyApp(),
-    theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100)),
-  ));
+  runApp(
+    MaterialApp(
+      title: "Quarantips",
+      home: const MyApp(),
+      theme: ThemeData(
+          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100)),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -69,7 +72,7 @@ class _MyAppState extends State<MyApp> {
               onPressed: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Daftar())),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -91,13 +91,18 @@ class Daftar extends StatelessWidget {
                       ),
                       child: const IconButton(
                         onPressed: null,
-                        icon: Icon(Icons.ac_unit),
+                        icon: Icon(Icons.do_not_disturb_on_outlined),
                         color: Colors.cyan,
                       ),
                     ),
                   ),
                 ],
-              )
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, top: 10, bottom: 0),
+                  child: DateRangePickerDialog(
+                      firstDate: DateTime.now(), lastDate: DateTime.now())),
             ],
           ),
         ),

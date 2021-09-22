@@ -31,6 +31,5 @@ class _CoronaVirusAppState extends State<CoronaVirusApp> {
   Future getData() async {
     Network network = Network("https://api.kawalcorona.com/indonesia");
     return network.fetchData();
-    //konmtol
   }
 }

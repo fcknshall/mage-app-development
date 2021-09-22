@@ -9,13 +9,13 @@ class CoronaVirusApp extends StatefulWidget {
 }
 
 class _CoronaVirusAppState extends State<CoronaVirusApp> {
-  Future data;
+  late Future data;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     data = getData();
+    // ignore: avoid_print
     data.then((value) => {print(value[0]["name"])});
   }
 
@@ -23,7 +23,11 @@ class _CoronaVirusAppState extends State<CoronaVirusApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Covid 19 Quarantips"),
+        title: const Text("Covid 19 Quarantips"),
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back)),
       ),
     );
   }

@@ -81,7 +81,7 @@ class Daftar extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        left: 25, right: 250, top: 10, bottom: 0),
+                        left: 25, right: 0, top: 10, bottom: 0),
                     child: Container(
                       width: 100,
                       decoration: BoxDecoration(
@@ -91,7 +91,7 @@ class Daftar extends StatelessWidget {
                       ),
                       child: const IconButton(
                         onPressed: null,
-                        icon: Icon(Icons.),
+                        icon: Icon(Icons.ac_unit),
                         color: Colors.cyan,
                       ),
                     ),

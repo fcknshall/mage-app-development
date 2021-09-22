@@ -45,22 +45,54 @@ class Daftar extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 1, right: 240, top: 10, bottom: 0),
-                      child: Container(
-                        width: 50,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: const IconButton(
-                          onPressed: null,
-                          icon: Icon(Icons.male),
-                          color: Colors.cyan,
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 25, right: 0, top: 10, bottom: 0),
+                    child: Container(
+                      width: 100,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 1),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: const IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.male),
+                        color: Colors.cyan,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 25, right: 0, top: 10, bottom: 0),
+                    child: Container(
+                      width: 100,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 1),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: const IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.female),
+                        color: Colors.cyan,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 25, right: 250, top: 10, bottom: 0),
+                    child: Container(
+                      width: 100,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 1),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: const IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.),
+                        color: Colors.cyan,
                       ),
                     ),
                   ),

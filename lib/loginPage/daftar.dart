@@ -51,9 +51,9 @@ class Daftar extends StatelessWidget {
                           left: 1, right: 250, top: 10, bottom: 0),
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
-                          shape: BoxShape.circle,
-                        ),
+                            border: Border.all(color: Colors.white, width: 1),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10))),
                         child: const IconButton(
                           onPressed: null,
                           icon: Icon(Icons.male),

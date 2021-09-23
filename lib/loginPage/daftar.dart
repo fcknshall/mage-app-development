@@ -99,10 +99,13 @@ class Daftar extends StatelessWidget {
                 ],
               ),
               Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15, right: 15, top: 10, bottom: 0),
-                  child: DateRangePickerDialog(
-                      firstDate: DateTime.now(), lastDate: DateTime.now())),
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 10, bottom: 0),
+                child: DateRangePickerDialog(
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime.now(),
+                ),
+              ),
             ],
           ),
         ),

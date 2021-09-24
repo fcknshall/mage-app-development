@@ -27,7 +27,6 @@ class _DaftarState extends State<Daftar> {
   }
 
   @override
-  //TODO Sesuain Date Picker line
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(

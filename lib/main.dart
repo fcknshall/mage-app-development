@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Padding(
+          /*   Padding(
             padding:
                 const EdgeInsets.only(left: 10, right: 230, top: 10, bottom: 0),
             child: CarouselSlider(
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                 enableInfiniteScroll: true,
               ),
             ),
-          ),
+          ), */
           const Padding(
               padding:
                   EdgeInsets.only(left: 10, right: 230, top: 10, bottom: 0),

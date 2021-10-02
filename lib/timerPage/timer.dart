@@ -28,9 +28,10 @@ class _TimerState extends State<Timer> {
                       return Text(
                           "Semangat!\nHanya\n${remaining.days} Hari ${remaining.hours} jam ${remaining.minutes} Menit",
                           style: (const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22)));
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          )));
                     }))
           ],
         ),

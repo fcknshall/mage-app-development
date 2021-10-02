@@ -89,7 +89,7 @@ class _LoginState extends State<Login> {
                               side: const BorderSide(color: Colors.white))),
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromRGBO(38, 61, 177, 100))),
-                  onPressed: () => Navigator.push(context,
+                  onPressed: () => Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => const Timer())),
                   child: const Text("Continue"),
                 ),

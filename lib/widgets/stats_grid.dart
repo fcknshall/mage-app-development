@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class StatsGrid extends StatelessWidget {
+  const StatsGrid({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height * 0.25,
       child: Column(
         children: <Widget>[

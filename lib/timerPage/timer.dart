@@ -24,6 +24,7 @@ class _TimerState extends State<Timer> {
                 child: CustomTimer(
                     from: const Duration(days: 14),
                     to: const Duration(seconds: 0),
+                    onBuildAction: CustomTimerAction.auto_start,
                     builder: (CustomTimerRemainingTime remaining) {
                       return Text(
                           "Semangat!\nHanya\n${remaining.days} Hari ${remaining.hours} jam ${remaining.minutes} Menit",
@@ -32,7 +33,17 @@ class _TimerState extends State<Timer> {
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           )));
-                    }))
+                    })),
+            Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset('assets/images/timerpage/hourglass1.png'),
+                  ],
+                ))
           ],
         ),
       ),

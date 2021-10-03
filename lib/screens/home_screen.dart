@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_covid_dashboard_ui/config/palette.dart';
-import 'package:flutter_covid_dashboard_ui/config/styles.dart';
-import 'package:flutter_covid_dashboard_ui/data/data.dart';
-import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
+import '/config/palette.dart';
+import '/config/styles.dart';
+import '/data/data.dart';
+import '/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -16,9 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       body: CustomScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(screenHeight),
           _buildPreventionTips(screenHeight),
@@ -32,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SliverToBoxAdapter(
       child: Container(
         padding: const EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Palette.primaryColor,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(40.0),
@@ -45,16 +47,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
+                const Text(
                   'Quarantips',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 CountryDropdown(
-                  countries: ['CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
+                  countries: const ['CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
                   country: _country,
                   onChanged: (val) => setState(() => _country = val),
                 ),
@@ -64,18 +66,18 @@ class _HomeScreenState extends State<HomeScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
+                const Text(
                   'Hey, are u alright ?',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 22.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.01),
-                Text(
+                const Text(
                   'Welcome to Quarantips App, First Self Quaratine Helper App',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white70,
                     fontSize: 15.0,
                   ),
@@ -98,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Icons.phone,
                         color: Colors.white,
                       ),
-                      label: Text(
+                      label: const Text(
                         'Call Now',
                         style: Styles.buttonTextStyle,
                       ),
@@ -118,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Icons.chat_bubble,
                         color: Colors.white,
                       ),
-                      label: Text(
+                      label: const Text(
                         'Send SMS',
                         style: Styles.buttonTextStyle,
                       ),
@@ -141,9 +143,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
+            const Text(
               'Prevention Tips',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.w600,
               ),
@@ -187,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(10.0),
         height: screenHeight * 0.15,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [Color(0xFFAD9FE4), Palette.primaryColor],
           ),
           borderRadius: BorderRadius.circular(20.0),
@@ -200,18 +202,18 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
+                const Text(
                   'Do your own test!',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.01),
-                Text(
+                const Text(
                   'Follow the instructions\nto do your own test.',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                   ),

@@ -1,17 +1,17 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_covid_dashboard_ui/config/styles.dart';
+import '/config/styles.dart';
 
 class CovidBarChart extends StatelessWidget {
   final List<double> covidCases;
 
-  const CovidBarChart({@required this.covidCases});
+  const CovidBarChart({Key? key, required this.covidCases}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 350.0,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.0),
@@ -23,15 +23,15 @@ class CovidBarChart extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(20.0),
             alignment: Alignment.centerLeft,
-            child: Text(
+            child: const Text(
               'Daily New Cases',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.85,
             child: BarChart(
               BarChartData(

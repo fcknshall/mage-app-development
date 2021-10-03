@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_covid_dashboard_ui/config/palette.dart';
+import '/config/palette.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+  const CustomAppBar({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -23,5 +25,5 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

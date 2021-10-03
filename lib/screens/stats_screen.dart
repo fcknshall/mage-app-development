@@ -1,11 +1,13 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_covid_dashboard_ui/config/palette.dart';
-import 'package:flutter_covid_dashboard_ui/config/styles.dart';
-import 'package:flutter_covid_dashboard_ui/data/data.dart';
-import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
+import '/config/palette.dart';
+import '/config/styles.dart';
+import '/data/data.dart';
+import '/widgets/widgets.dart';
 
 class StatsScreen extends StatefulWidget {
+  const StatsScreen({Key? key}) : super(key: key);
+
   @override
   _StatsScreenState createState() => _StatsScreenState();
 }
@@ -15,15 +17,15 @@ class _StatsScreenState extends State<StatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.primaryColor,
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       body: CustomScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
           _buildRegionTabBar(),
           _buildStatsTabBar(),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
             sliver: SliverToBoxAdapter(
               child: StatsGrid(),
             ),
@@ -40,12 +42,12 @@ class _StatsScreenState extends State<StatsScreen> {
   }
 
   SliverPadding _buildHeader() {
-    return SliverPadding(
-      padding: const EdgeInsets.all(20.0),
+    return const SliverPadding(
+      padding: EdgeInsets.all(20.0),
       sliver: SliverToBoxAdapter(
         child: Text(
           'Statistics',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
             fontSize: 25.0,
             fontWeight: FontWeight.bold,
@@ -67,7 +69,7 @@ class _StatsScreenState extends State<StatsScreen> {
             borderRadius: BorderRadius.circular(25.0),
           ),
           child: TabBar(
-            indicator: BubbleTabIndicator(
+            indicator: const BubbleTabIndicator(
               tabBarIndicatorSize: TabBarIndicatorSize.tab,
               indicatorHeight: 40.0,
               indicatorColor: Colors.white,
@@ -75,7 +77,7 @@ class _StatsScreenState extends State<StatsScreen> {
             labelStyle: Styles.tabTextStyle,
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
-            tabs: <Widget>[
+            tabs: const <Widget>[
               Text('My Country'),
               Text('Global'),
             ],
@@ -97,7 +99,7 @@ class _StatsScreenState extends State<StatsScreen> {
             labelStyle: Styles.tabTextStyle,
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white60,
-            tabs: <Widget>[
+            tabs: const <Widget>[
               Text('Total'),
               Text('Today'),
               Text('Yesterday'),

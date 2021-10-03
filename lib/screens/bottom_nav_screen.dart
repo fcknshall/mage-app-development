@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_covid_dashboard_ui/screens/screens.dart';
+import 'screens.dart';
 
 class BottomNavScreen extends StatefulWidget {
+  const BottomNavScreen({Key? key}) : super(key: key);
+
   @override
   _BottomNavScreenState createState() => _BottomNavScreenState();
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
-    HomeScreen(),
-    StatsScreen(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    const HomeScreen(),
+    const StatsScreen(),
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
   ];
   int _currentIndex = 0;
 
@@ -32,13 +34,19 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         elevation: 0.0,
-        items: [Icons.home, Icons.coronavirus_outlined, Icons.health_and_safety_outlined,
-         Icons.fact_check_outlined, Icons.event_note, Icons.window_rounded ]
+        items: [
+          Icons.home,
+          Icons.coronavirus_outlined,
+          Icons.health_and_safety_outlined,
+          Icons.fact_check_outlined,
+          Icons.event_note,
+          Icons.window_rounded
+        ]
             .asMap()
             .map((key, value) => MapEntry(
                   key,
                   BottomNavigationBarItem(
-                    title: Text(''),
+                    label: '',
                     icon: Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 6.0,

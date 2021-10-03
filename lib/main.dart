@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-/* import 'data/imagecarousel.dart';
-import 'package:carousel_slider/carousel_slider.dart'; */
+import 'data/imagecarousel.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quarantips/loginPage/daftar.dart';
@@ -38,20 +38,22 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          /*   Padding(
-            padding:
-                const EdgeInsets.only(left: 10, right: 230, top: 10, bottom: 0),
+          Padding(
+            padding: const EdgeInsets.only(
+                left: 100, right: 100, top: 170, bottom: 80),
             child: CarouselSlider(
               items: const [
                 MyImageView("assets/images/startpage/illustration.png"),
                 MyImageView("assets/images/startpage/stayhome.png")
               ],
               options: CarouselOptions(
+                height: 200.0,
+                autoPlayInterval: const Duration(seconds: 5),
                 autoPlay: true,
                 enableInfiniteScroll: true,
               ),
             ),
-          ), */
+          ),
           const Padding(
               padding:
                   EdgeInsets.only(left: 10, right: 230, top: 10, bottom: 0),

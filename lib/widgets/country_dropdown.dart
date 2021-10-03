@@ -6,10 +6,11 @@ class CountryDropdown extends StatelessWidget {
   final Function(String) onChanged;
 
   const CountryDropdown({
-    @required this.countries,
-    @required this.country,
-    @required this.onChanged,
-  });
+    Key? key,
+    required this.countries,
+    required this.country,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class CountryDropdown extends StatelessWidget {
                     value: e,
                   ))
               .toList(),
-          onChanged: onChanged,
+          onChanged: (value) => onChanged,
         ),
       ),
     );

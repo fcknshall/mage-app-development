@@ -100,8 +100,11 @@ class Daftar2 extends StatelessWidget {
                               side: const BorderSide(color: Colors.white))),
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromRGBO(38, 61, 177, 100))),
-                  onPressed: () => Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => const MyApp())),
+                  onPressed: () => Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyApp()),
+                    (Route<dynamic> route) => false,
+                  ),
                   child: const Text("Continue"),
                 ),
               ),

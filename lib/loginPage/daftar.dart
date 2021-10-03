@@ -163,8 +163,10 @@ class _DaftarState extends State<Daftar> {
                               side: const BorderSide(color: Colors.white))),
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromRGBO(38, 61, 177, 100))),
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Daftar2())),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Daftar2()),
+                  ),
                   child: const Text("Continue"),
                 ),
               ),

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quarantips/loginPage/daftar.dart';
 import 'package:quarantips/loginPage/login.dart';
-//import 'covid19.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

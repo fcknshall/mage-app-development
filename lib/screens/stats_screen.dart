@@ -2,7 +2,7 @@ import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import '/config/palette.dart';
 import '/config/styles.dart';
-import '/data/data.dart';
+import '/config/data.dart';
 import '/widgets/widgets.dart';
 
 class StatsScreen extends StatefulWidget {

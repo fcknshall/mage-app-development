@@ -1,7 +1,9 @@
 import 'package:custom_timer/custom_timer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'dart:math' as math;
 
 class Timer extends StatefulWidget {
   const Timer({Key? key}) : super(key: key);
@@ -10,7 +12,26 @@ class Timer extends StatefulWidget {
   _TimerState createState() => _TimerState();
 }
 
-class _TimerState extends State<Timer> {
+class _TimerState extends State<Timer> with TickerProviderStateMixin {
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 4000),
+    );
+    animationController.forward();
+    animationController.addListener(() {
+      setState(() {
+        if (animationController.status == AnimationStatus.completed) {
+          animationController.repeat();
+        }
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,12 +58,31 @@ class _TimerState extends State<Timer> {
             Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Image.asset('assets/images/timerpage/hourglass1.png'),
-                  ],
+                child: AnimatedBuilder(
+                  animation: animationController,
+                  builder: (_, child) {
+                    return Transform.rotate(
+                      angle: animationController.value * 2 * math.pi,
+                      child: child,
+                    );
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/timerpage/hourglass1.png'),
+                    ],
+                  ),
+                )),
+            const Padding(
+                padding: EdgeInsets.fromLTRB(30, 70, 100, 0),
+                child: Text(
+                  "Sampai Isolasi Mandiri \nSelesai",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
                 ))
           ],
         ),

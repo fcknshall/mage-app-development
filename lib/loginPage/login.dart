@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quarantips/timerPage/timer.dart';
+import 'package:quarantips/screens/bottom_nav_screen.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -107,8 +107,8 @@ class _LoginState extends State<Login> {
                           const Color.fromRGBO(73, 97, 222, 1))),
                   onPressed: () => Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => const Timer()),
-                    //bottomnavscreen
+                    MaterialPageRoute(
+                        builder: (context) => const BottomNavScreen()),
                     (Route<dynamic> route) => false,
                   ),
                   child: const Text("Continue",

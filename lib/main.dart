@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'data/imagecarousel.dart';
+import 'config/imagecarousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,8 +18,10 @@ void main() {
     MaterialApp(
       title: "Quarantips",
       home: const MyApp(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100)),
+          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100),
+          visualDensity: VisualDensity.adaptivePlatformDensity),
     ),
   );
 }

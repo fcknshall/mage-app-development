@@ -8,12 +8,15 @@ class Daftar2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-            scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100)),
+            scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1)),
         home: Scaffold(
           appBar: AppBar(
-            title: const Text("Daftar"),
+            title: const Text("Daftar",
+              style: TextStyle(fontFamily: 'Kanit', fontSize: 30, color: Color.fromRGBO(227,248,251,1)
+          ),
+            ),
             automaticallyImplyLeading: true,
-            backgroundColor: const Color.fromRGBO(73, 97, 222, 0.1),
+            backgroundColor: const Color.fromRGBO(73, 97, 222, 1),
             leading: IconButton(
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back)),
@@ -22,10 +25,13 @@ class Daftar2 extends StatelessWidget {
             children: <Widget>[
               const Padding(
                   padding:
-                      EdgeInsets.only(left: 1, right: 320, top: 100, bottom: 0),
+                      EdgeInsets.only(left: 10, right: 310, top: 100, bottom: 0),
                   child: Text(
                     "E-mail",
-                    style: TextStyle(color: Colors.white),
+                     style: TextStyle(color: Colors.white,
+                  fontFamily: 'Kanit',
+                  fontSize: 20,
+                  ),
                   )),
               Padding(
                 padding: const EdgeInsets.only(
@@ -40,20 +46,24 @@ class Daftar2 extends StatelessWidget {
                       fillColor: Color.fromRGBO(38, 61, 188, 100),
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       hintText: 'Masukan email anda',
-                      hintStyle: TextStyle(color: Colors.grey)),
+                      hintStyle: TextStyle(color: Colors.grey, fontFamily: 'KanitLight')),
                 ),
               ),
               const Padding(
                   padding:
-                      EdgeInsets.only(left: 1, right: 300, top: 50, bottom: 0),
+                      EdgeInsets.only(left: 10, right: 290, top: 50, bottom: 0),
                   child: Text(
                     "Password",
-                    style: TextStyle(color: Colors.white),
+                     style: TextStyle(color: Colors.white,
+                  fontFamily: 'Kanit',
+                  fontSize: 20,
+                  ),
                   )),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 15, right: 15, top: 10, bottom: 0),
                 child: TextFormField(
+                  obscureText: true,
                   cursorColor: Colors.white,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
@@ -68,10 +78,12 @@ class Daftar2 extends StatelessWidget {
               ),
               const Padding(
                   padding:
-                      EdgeInsets.only(left: 1, right: 250, top: 50, bottom: 0),
+                      EdgeInsets.only(left: 10, right: 210, top: 50, bottom: 0),
                   child: Text(
                     "Confirm Password",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white,
+                  fontFamily: 'Kanit',
+                  fontSize: 20,),
                   )),
               Padding(
                 padding: const EdgeInsets.only(
@@ -90,22 +102,26 @@ class Daftar2 extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(40, 150, 40, 0),
+                padding: const EdgeInsets.fromLTRB(20, 190, 20, 0),
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(const Size(350, 50)),
+                      fixedSize: MaterialStateProperty.all(const Size(370, 60)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               side: const BorderSide(color: Colors.white))),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromRGBO(38, 61, 177, 100))),
+                          const Color.fromRGBO(73, 97, 222, 1))),
                   onPressed: () => Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => const MyApp()),
                     (Route<dynamic> route) => false,
                   ),
-                  child: const Text("Continue"),
+                  child: const Text("Continue",
+                  style: TextStyle(color: Colors.white,
+                  fontFamily: 'Kanit',
+                  fontSize: 20,),
+                  ),
                 ),
               ),
             ],

@@ -19,7 +19,7 @@ void main() {
       home: const MyApp(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100),
+          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1),
           visualDensity: VisualDensity.adaptivePlatformDensity),
     ),
   );
@@ -28,6 +28,7 @@ void main() {
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
+
   State<StatefulWidget> createState() {
     return _MyAppState();
   }
@@ -44,7 +45,9 @@ class _MyAppState extends State<MyApp> {
                 left: 100, right: 100, top: 170, bottom: 80),
             child: CarouselSlider(
               items: const [
-                MyImageView("assets/images/startpage/illustration.png"),
+                MyImageView(
+                  "assets/images/startpage/illustration.png"
+                  ),
                 MyImageView("assets/images/startpage/stayhome.png")
               ],
               options: CarouselOptions(
@@ -57,28 +60,41 @@ class _MyAppState extends State<MyApp> {
           ),
           const Padding(
               padding:
-                  EdgeInsets.only(left: 10, right: 230, top: 10, bottom: 0),
-              child: Text("Welcome to Quarantips",
-                  style: TextStyle(color: Colors.white))),
+                  EdgeInsets.only(left: 10, right: 70, top: 10, bottom: 0),
+              child: Text("WELCOME TO QUARANTIPS",
+                  style: TextStyle(
+                    fontFamily: 'Kanit',
+                    fontSize: 24,
+                    color: Colors.white))),
           const Padding(
-              padding: EdgeInsets.only(left: 10, right: 20, top: 10, bottom: 0),
+              padding: EdgeInsets.only(left: 10, right: 40, top: 10, bottom: 0),
               child: Text(
                   "Karena kami ada disini untuk menemani mu di perjalanan\nkamu saat isolasi mandiri",
                   style: TextStyle(
+                    fontFamily: 'KanitLight',
+                    fontSize: 13,
                     color: Colors.white,
                   ))),
           Padding(
               padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
               child: ElevatedButton(
                 style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color.fromRGBO(73, 97, 222, 1)),
                     textStyle: MaterialStateProperty.all(
                         const TextStyle(fontSize: 30)),
                     fixedSize: MaterialStateProperty.all(const Size(350, 80)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
-                            side: const BorderSide(color: Colors.white)))),
-                child: const Text('LOGIN'),
+                            side: const BorderSide(color: Colors.yellow)))),
+                child: const Text('LOGIN',
+                style: TextStyle(
+                    fontFamily: 'Kanit',
+                    fontSize: 30,
+                    color: Colors.white
+                ),
+                ),
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Login())),
               )),
@@ -86,14 +102,20 @@ class _MyAppState extends State<MyApp> {
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: ElevatedButton(
               style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color.fromRGBO(73, 97, 222, 1)),
                   textStyle:
                       MaterialStateProperty.all(const TextStyle(fontSize: 30)),
                   fixedSize: MaterialStateProperty.all(const Size(350, 80)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
-                          side: const BorderSide(color: Colors.white)))),
-              child: const Text('DAFTAR'),
+                          side: const BorderSide(color: Colors.yellow)))),
+              child: const Text('DAFTAR',
+              style: TextStyle(
+                fontFamily: 'Kanit',
+                fontSize: 30,
+              ),),
               onPressed: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Daftar())),
             ),

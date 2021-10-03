@@ -16,4 +16,6 @@ class Styles {
     fontSize: 16.0,
     fontWeight: FontWeight.w600,
   );
+
+  
 }

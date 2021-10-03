@@ -13,13 +13,19 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100)),
+          scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1)),
       home: Scaffold(
         //AppBar
         appBar: AppBar(
-          title: const Text("Login Page"),
+          title: const Text("Login Page",
+          style: TextStyle(
+            fontFamily: 'Kanit',
+            fontSize: 30,
+            color : const Color.fromRGBO(227,248,251,1),
+          ),),
           automaticallyImplyLeading: true,
-          backgroundColor: const Color.fromRGBO(73, 97, 222, 0.1),
+          backgroundColor: const Color.fromRGBO(73, 97, 222, 100),
+          
           leading: IconButton(
               onPressed: () => Navigator.pop(context),
               icon: const Icon(Icons.arrow_back)),
@@ -30,10 +36,13 @@ class _LoginState extends State<Login> {
               //Email
               const Padding(
                 padding:
-                    EdgeInsets.only(left: 1, right: 320, top: 100, bottom: 0),
+                    EdgeInsets.only(left: 15, right: 310, top: 100, bottom: 0),
                 child: Text(
                   "E-Mail",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,
+                  fontFamily: 'Kanit',
+                  fontSize: 20,
+                  ),
                 ),
               ),
               //Field Email
@@ -48,7 +57,7 @@ class _LoginState extends State<Login> {
                     filled: true,
                     fillColor: Color.fromRGBO(38, 61, 177, 100),
                     border: OutlineInputBorder(borderSide: BorderSide()),
-                    labelStyle: TextStyle(color: Colors.white),
+                    labelStyle: TextStyle(color: Colors.white, fontFamily: 'KanitLight',),
                     labelText: 'Masukan email anda',
                     hintText: 'Masukan email anda',
                   ),
@@ -57,45 +66,56 @@ class _LoginState extends State<Login> {
               //Password
               const Padding(
                   padding:
-                      EdgeInsets.only(left: 1, right: 300, top: 100, bottom: 0),
+                      EdgeInsets.only(left: 15, right: 290, top: 100, bottom: 0),
                   child:
-                      Text("Password", style: TextStyle(color: Colors.white))),
+                      Text("Password", style: TextStyle(color: Colors.white,
+                      fontFamily: 'Kanit',
+                      fontSize: 20,
+                      ))),
               //Password Field
               Padding(
                 padding: const EdgeInsets.only(
                     left: 15.0, right: 15.0, top: 10, bottom: 0),
                 child: TextFormField(
+                  obscureText: true,
                   cursorColor: Colors.white,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
+                    
                       filled: true,
                       fillColor: Color.fromRGBO(38, 61, 177, 100),
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: 'Password',
-                      labelStyle: TextStyle(color: Colors.white)),
+                      labelStyle: TextStyle(color: Colors.white, fontFamily: 'KanitLight',
+                      ),
+                      ),
                 ),
               ),
               //Continue
               Padding(
-                padding: const EdgeInsets.fromLTRB(40, 280, 40, 0),
+                padding: const EdgeInsets.fromLTRB(20, 280, 20, 0),
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(const Size(350, 50)),
+                      fixedSize: MaterialStateProperty.all(const Size(370, 60)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               side: const BorderSide(color: Colors.white))),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromRGBO(38, 61, 177, 100))),
+                          const Color.fromRGBO(73, 97, 222, 1))),
                   onPressed: () => Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => const Timer()),
                     //bottomnavscreen
                     (Route<dynamic> route) => false,
                   ),
-                  child: const Text("Continue"),
+                  child: const Text("Continue",
+                  style: TextStyle(
+                    fontFamily: 'Kanit',
+                    fontSize: 20,
+                  ),),
                 ),
               ),
             ],

@@ -41,7 +41,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
         body: Column(
           children: <Widget>[
             Padding(
-                padding: const EdgeInsets.fromLTRB(30, 100, 100, 0),
+                padding: const EdgeInsets.fromLTRB(30, 100, 80, 0),
                 child: CustomTimer(
                     from: const Duration(days: 14),
                     to: const Duration(seconds: 0),
@@ -50,9 +50,9 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                       return Text(
                           "Semangat!\nHanya\n${remaining.days} Hari ${remaining.hours} jam ${remaining.minutes} Menit",
                           style: (const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
+                            color:  Color.fromRGBO(227,248,251,1),
+                            fontSize: 26,
+                              fontFamily: 'Kanit',
                           )));
                     })),
             Padding(
@@ -79,9 +79,10 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                 child: Text(
                   "Sampai Isolasi Mandiri \nSelesai",
                   style: TextStyle(
-                    color: Colors.white,
+                    color:  Color.fromRGBO(227,248,251,1),
                     fontWeight: FontWeight.bold,
-                    fontSize: 22,
+                    fontSize: 24,
+                      fontFamily: 'Kanit',
                   ),
                 ))
           ],

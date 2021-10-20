@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quarantips/timerPage/timer.dart';
+import 'package:quarantips/screens/jadwal.dart';
+import 'package:quarantips/screens/timer.dart';
 import 'screens.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     const HomeScreen(),
     const Scaffold(),
     const Timer(),
-    const Scaffold(),
+    const Calendar(),
     const Scaffold(),
     const Scaffold(),
     const Scaffold(),

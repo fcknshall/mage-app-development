@@ -10,8 +10,8 @@ class Daftar extends StatefulWidget {
 }
 
 class _DaftarState extends State<Daftar> {
-  DateTime selectedDate = DateTime.now();
   final _textEditingController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -34,9 +34,12 @@ class _DaftarState extends State<Daftar> {
           scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1)),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("SIGN UP",
-          style: TextStyle(fontFamily: 'Kanit', fontSize: 30, color: Color.fromRGBO(227,248,251,1)
-          ),
+          title: const Text(
+            "SIGN UP",
+            style: TextStyle(
+                fontFamily: 'Kanit',
+                fontSize: 30,
+                color: Color.fromRGBO(227, 248, 251, 1)),
           ),
           automaticallyImplyLeading: true,
           backgroundColor: const Color.fromRGBO(73, 97, 222, 1),
@@ -48,13 +51,14 @@ class _DaftarState extends State<Daftar> {
           child: Column(
             children: <Widget>[
               const Padding(
-                  padding:
-                      EdgeInsets.only(left: 10, right: 230, top: 100, bottom: 0),
+                  padding: EdgeInsets.only(
+                      left: 10, right: 230, top: 100, bottom: 0),
                   child: Text(
                     "Nama Lengkap",
-                    style: TextStyle(color: Colors.white,
-                    fontFamily: 'Kanit',
-                  fontSize: 20,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Kanit',
+                      fontSize: 20,
                     ),
                   )),
               Padding(
@@ -64,14 +68,15 @@ class _DaftarState extends State<Daftar> {
                   cursorColor: Colors.white,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white)),
-                      filled: true,
-                      fillColor: Color.fromRGBO(38, 61, 188, 100),
-                      border: OutlineInputBorder(borderSide: BorderSide()),
-                      hintText: 'Masukan Nama Anda',
-                      hintStyle: TextStyle(color: Colors.white, fontFamily: 'KanitLight'),
-                      ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    filled: true,
+                    fillColor: Color.fromRGBO(38, 61, 188, 100),
+                    border: OutlineInputBorder(borderSide: BorderSide()),
+                    hintText: 'Masukan Nama Anda',
+                    hintStyle: TextStyle(
+                        color: Colors.white, fontFamily: 'KanitLight'),
+                  ),
                 ),
               ),
               Row(
@@ -86,7 +91,7 @@ class _DaftarState extends State<Daftar> {
                         border: Border.all(color: Colors.white, width: 1),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
-                        color: Color.fromRGBO(73, 97, 222, 100),
+                        color: const Color.fromRGBO(73, 97, 222, 100),
                       ),
                       child: const IconButton(
                         onPressed: null,
@@ -135,9 +140,10 @@ class _DaftarState extends State<Daftar> {
                 padding: EdgeInsets.fromLTRB(10, 30, 160, 0),
                 child: Text(
                   "Masukan Tanggal Lahir",
-                  style: TextStyle(color: Colors.white,
-                   fontFamily: 'Kanit',
-                  fontSize: 20,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Kanit',
+                    fontSize: 20,
                   ),
                 ),
               ),
@@ -179,9 +185,10 @@ class _DaftarState extends State<Daftar> {
                     context,
                     MaterialPageRoute(builder: (context) => const Daftar2()),
                   ),
-                  child: const Text("Continue",
-                  style: TextStyle( fontFamily: 'Kanit',
-                    fontSize: 20),),
+                  child: const Text(
+                    "Continue",
+                    style: TextStyle(fontFamily: 'Kanit', fontSize: 20),
+                  ),
                 ),
               ),
             ],

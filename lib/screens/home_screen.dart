@@ -51,8 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Quarantips',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25.0,
+                    fontSize: 28.0,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Kanit',
                   ),
                 ),
                 CountryDropdown(
@@ -72,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white,
                     fontSize: 22.0,
                     fontWeight: FontWeight.w600,
+                      fontFamily: 'KanitLight',
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.01),
@@ -80,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 15.0,
+                    fontFamily: 'KanitLight',
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.03),
@@ -144,10 +147,12 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const Text(
-              'Prevention Tips',
+              'Top Stories >',
               style: TextStyle(
-                fontSize: 22.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.w600,
+                  fontFamily: 'KanitLight',
+                  color: Colors.white,
               ),
             ),
             const SizedBox(height: 20.0),

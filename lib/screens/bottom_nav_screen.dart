@@ -13,7 +13,7 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
-    const Scaffold(),
+    infocovid(),
     const Timer(),
     const Calendar(),
     const Scaffold(),
@@ -39,7 +39,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         items: [
           Icons.home,
           Icons.coronavirus_outlined,
-          Icons.health_and_safety_outlined,
+          Icons.av_timer_rounded,
           Icons.fact_check_outlined,
           Icons.event_note,
           Icons.window_rounded

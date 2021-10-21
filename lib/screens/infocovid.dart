@@ -176,12 +176,11 @@ class _infocovidState extends State<infocovid> {
       ),
        ),
      ],
-   ));
+   )
+   );
      
   }
-  Container _tips(){
-    
-  }
+ 
 
   
 }

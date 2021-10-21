@@ -12,6 +12,8 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1)),
       home: Scaffold(
@@ -25,6 +27,7 @@ class _LoginState extends State<Login> {
               color: Color.fromRGBO(227, 248, 251, 1),
             ),
           ),
+          
           automaticallyImplyLeading: true,
           backgroundColor: const Color.fromRGBO(73, 97, 222, 100),
           leading: IconButton(

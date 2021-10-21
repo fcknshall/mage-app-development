@@ -176,11 +176,10 @@ class _infocovidState extends State<infocovid> {
       ),
        ),
      ],
-   )
-   );
+   ));
      
   }
- 
+  
 
   
 }

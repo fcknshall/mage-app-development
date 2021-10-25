@@ -10,13 +10,14 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: Palette.primaryColor,
       elevation: 0.0,
-     
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.person_outline_sharp),
           iconSize: 28.0,
-          onPressed: () {},
-        ),
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          ),
+        )
       ],
     );
   }

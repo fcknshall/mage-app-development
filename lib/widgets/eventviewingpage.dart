@@ -1,7 +1,10 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:quarantips/config/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:quarantips/config/utils.dart';
+import 'package:quarantips/screens/eventediting.dart';
 import 'package:quarantips/config/event.dart';
 
 class EventViewingPage extends StatelessWidget {
@@ -69,6 +72,56 @@ class EventViewingPage extends StatelessWidget {
             )),
           ],
         ),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 30, 320, 0),
+          child: Text(
+            "Berakhir",
+            style: TextStyle(
+                fontFamily: 'kanit', fontSize: 18, color: Colors.white),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Expanded(
+                flex: 2,
+                child: Text(
+                  Utils.toDate(event.to),
+                  style:
+                      const TextStyle(fontFamily: 'kanit', color: Colors.white),
+                )),
+            Expanded(
+                child: Text(
+              Utils.toTime(event.to),
+              style: const TextStyle(fontFamily: 'kanit', color: Colors.white),
+            )),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton.icon(
+                onPressed: () => Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                        builder: (context) => Aktivitas(event: event))),
+                icon: const Icon(Icons.create_outlined),
+                label: const Text('Edit',
+                    style:
+                        TextStyle(fontFamily: 'kanit', color: Colors.white))),
+            ElevatedButton.icon(
+                onPressed: () {
+                  final provider =
+                      Provider.of<EventProvider>(context, listen: false);
+                  provider.deleteEvent(event);
+
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.delete),
+                label: const Text('Hapus',
+                    style: TextStyle(fontFamily: 'kanit', color: Colors.white)))
+          ],
+        )
       ]),
     );
   }

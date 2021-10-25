@@ -32,6 +32,13 @@ class _AktivitasState extends State<Aktivitas> {
     if (widget.event == null) {
       fromDate = DateTime.now();
       toDate = DateTime.now().add(const Duration(hours: 2));
+    } else {
+      final event = widget.event!;
+
+      titlecontroller.text = event.title;
+      descriptioncontroller.text = event.description;
+      fromDate = event.from;
+      toDate = event.to;
     }
   }
 
@@ -302,10 +309,30 @@ class _AktivitasState extends State<Aktivitas> {
         isAllDay: false,
       );
 
+      final isEditing = widget.event != null;
       final provider = Provider.of<EventProvider>(context, listen: false);
-      provider.addEvent(event);
 
+      if (isEditing) {
+        provider.editEvent(event, widget.event!);
+        Navigator.of(context).pop();
+      } else {
+        provider.addEvent(event);
+      }
       Navigator.of(context).pop();
     }
+  }
+}
+
+class Obat extends StatefulWidget {
+  const Obat({Key? key}) : super(key: key);
+
+  @override
+  _ObatState createState() => _ObatState();
+}
+
+class _ObatState extends State<Obat> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

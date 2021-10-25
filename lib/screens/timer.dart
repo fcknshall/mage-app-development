@@ -17,11 +17,13 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    super.initState();
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 4000),
     );
+
+    animationController.dispose();
+    super.initState();
     animationController.forward();
     animationController.addListener(() {
       setState(() {
@@ -50,9 +52,9 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                       return Text(
                           "Semangat!\nHanya\n${remaining.days} Hari ${remaining.hours} jam ${remaining.minutes} Menit",
                           style: (const TextStyle(
-                            color:  Color.fromRGBO(227,248,251,1),
+                            color: Color.fromRGBO(227, 248, 251, 1),
                             fontSize: 26,
-                              fontFamily: 'Kanit',
+                            fontFamily: 'Kanit',
                           )));
                     })),
             Padding(
@@ -79,10 +81,10 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                 child: Text(
                   "Sampai Isolasi Mandiri \nSelesai",
                   style: TextStyle(
-                    color:  Color.fromRGBO(227,248,251,1),
+                    color: Color.fromRGBO(227, 248, 251, 1),
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
-                      fontFamily: 'Kanit',
+                    fontFamily: 'Kanit',
                   ),
                 ))
           ],

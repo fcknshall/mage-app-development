@@ -5,14 +5,13 @@ import '/config/styles.dart';
 import '/config/data.dart';
 import '/widgets/widgets.dart';
 
-
 class infocovid extends StatefulWidget {
   @override
   _infocovidState createState() => _infocovidState();
 }
 
 class _infocovidState extends State<infocovid> {
- /* late kota selectedkota;
+  /* late kota selectedkota;
   List <kota> daerah = [
     kota("Kota Surabaya"),
     kota("Kota Jakarta"),
@@ -31,7 +30,6 @@ class _infocovidState extends State<infocovid> {
   }*/
   @override
   Widget build(BuildContext context) {
-     
     return Scaffold(
       backgroundColor: Palette.primaryColor,
       appBar: CustomAppBar(),
@@ -40,10 +38,8 @@ class _infocovidState extends State<infocovid> {
         slivers: <Widget>[
           _buildHeader(),
           _buildStatsTabBar(),
-           _tabelcovid(),
-           _tabelkasus(),
-         
-        
+          _tabelcovid(),
+          _tabelkasus(),
         ],
       ),
     );
@@ -54,7 +50,6 @@ class _infocovidState extends State<infocovid> {
       padding: const EdgeInsets.all(20),
       sliver: SliverToBoxAdapter(
         child: Text(
-          
           'Info Covid',
           style: const TextStyle(
             color: Colors.white,
@@ -63,24 +58,23 @@ class _infocovidState extends State<infocovid> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        
-        
       ),
     );
   }
-
 
   SliverToBoxAdapter _buildStatsTabBar() {
     return SliverToBoxAdapter(
       child: DefaultTabController(
         length: 3,
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10,),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 10,
+          ),
           height: 30.0,
           decoration: BoxDecoration(
             color: Colors.white54,
             borderRadius: BorderRadius.circular(25.0),
-            
           ),
           child: TabBar(
             indicator: BubbleTabIndicator(
@@ -92,20 +86,27 @@ class _infocovidState extends State<infocovid> {
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('Kasus',style: TextStyle(
-                fontSize: 13,
-                color:Colors.lightBlue,
-                
-              ),),
-              Text('Sembuh',style: TextStyle(
-                fontSize: 13,
-                color:Colors.green,
-              ),),
-               Text('Kematian',style: TextStyle(
-                fontSize: 13,
-                color:Colors.black,
-              ),),
-
+              Text(
+                'Kasus',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.lightBlue,
+                ),
+              ),
+              Text(
+                'Sembuh',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.green,
+                ),
+              ),
+              Text(
+                'Kematian',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.black,
+                ),
+              ),
             ],
             onTap: (index) {},
           ),
@@ -113,6 +114,7 @@ class _infocovidState extends State<infocovid> {
       ),
     );
   }
+
 /* SliverToBoxAdapter _buildKota (){
    return SliverToBoxAdapter(
      child: Column(children: <Widget> [
@@ -147,40 +149,37 @@ class _infocovidState extends State<infocovid> {
    );
  }
  */
-  SliverToBoxAdapter _tabelcovid (){
-   return SliverToBoxAdapter(
-     child: Column(children: <Widget> [
-       Container(
-         
+  SliverToBoxAdapter _tabelcovid() {
+    return SliverToBoxAdapter(
+        child: Column(
+      children: <Widget>[
+        Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      height: 200.0,
-         margin: EdgeInsets.all(15),
-         decoration : BoxDecoration(   color: Colors.white,
-        borderRadius: BorderRadius.circular(20.0),
-        
-      ),
-       ),
-     ],
-   ));
-     
+          height: 200.0,
+          margin: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+        ),
+      ],
+    ));
   }
-  SliverToBoxAdapter _tabelkasus (){
-   return SliverToBoxAdapter(
-     child: Column(children: <Widget> [
-       Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      height: 150.0,
-         margin: EdgeInsets.all(10),
-         decoration : BoxDecoration(   color: Colors.white,
-        borderRadius: BorderRadius.circular(20.0),
-        
-      ),
-       ),
-     ],
-   ));
-     
-  }
-  
 
-  
+  SliverToBoxAdapter _tabelkasus() {
+    return SliverToBoxAdapter(
+        child: Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          height: 150.0,
+          margin: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+        ),
+      ],
+    ));
+  }
 }

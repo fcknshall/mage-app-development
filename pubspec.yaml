@@ -41,6 +41,8 @@ dependencies:
   bubble_tab_indicator: ^0.1.6
   fl_chart: ^0.40.0
   flutter_speed_dial: ^4.4.0+2
+  flutter_vector_icons: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:

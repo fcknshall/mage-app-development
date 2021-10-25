@@ -16,7 +16,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     infocovid(),
     const Timer(),
     const Calendar(),
-    const Scaffold(),
+     ProfileScreen(),
     const Scaffold(),
     const Scaffold(),
   ];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/config/palette.dart';
+import 'package:quarantips/screens/screens.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const CustomAppBar({Key? key}) : super(key: key);

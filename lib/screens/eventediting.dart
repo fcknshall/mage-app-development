@@ -322,3 +322,17 @@ class _AktivitasState extends State<Aktivitas> {
     }
   }
 }
+
+class Obat extends StatefulWidget {
+  const Obat({Key? key}) : super(key: key);
+
+  @override
+  _ObatState createState() => _ObatState();
+}
+
+class _ObatState extends State<Obat> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

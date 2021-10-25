@@ -99,7 +99,7 @@ class EventViewingPage extends StatelessWidget {
           ],
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ElevatedButton.icon(
                 onPressed: () => Navigator.of(context).pushReplacement(
@@ -110,11 +110,15 @@ class EventViewingPage extends StatelessWidget {
                     style:
                         TextStyle(fontFamily: 'kanit', color: Colors.white))),
             ElevatedButton.icon(
-                onPressed: () => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                        builder: (context) => Aktivitas(event: event))),
-                icon: const Icon(Icons.create_outlined),
-                label: const Text('Edit',
+                onPressed: () {
+                  final provider =
+                      Provider.of<EventProvider>(context, listen: false);
+                  provider.deleteEvent(event);
+
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.delete),
+                label: const Text('Hapus',
                     style: TextStyle(fontFamily: 'kanit', color: Colors.white)))
           ],
         )

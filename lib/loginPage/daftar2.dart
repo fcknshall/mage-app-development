@@ -7,6 +7,7 @@ class Daftar2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         theme: ThemeData(
             scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1)),
         home: Scaffold(

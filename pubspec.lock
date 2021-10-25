@@ -91,7 +91,7 @@ packages:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.40.0"
+    version: "0.40.2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -158,6 +158,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+<<<<<<< HEAD
   pedantic:
     dependency: transitive
     description:
@@ -172,6 +173,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.1"
+=======
+>>>>>>> dddacbdcc60419724fc095db16d7cfb960d02458
   sky_engine:
     dependency: transitive
     description: flutter
@@ -211,21 +214,21 @@ packages:
       name: syncfusion_flutter_calendar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.3.45"
+    version: "19.3.46"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.3.45"
+    version: "19.3.46"
   syncfusion_flutter_datepicker:
     dependency: transitive
     description:
       name: syncfusion_flutter_datepicker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.3.45"
+    version: "19.3.46"
   term_glyph:
     dependency: transitive
     description:
@@ -262,5 +265,9 @@ packages:
     source: hosted
     version: "2.1.0"
 sdks:
+<<<<<<< HEAD
   dart: ">=2.12.0 <3.0.0"
+=======
+  dart: ">=2.14.0 <3.0.0"
+>>>>>>> dddacbdcc60419724fc095db16d7cfb960d02458
   flutter: ">=2.5.0"

@@ -12,7 +12,7 @@ class infocovid extends StatefulWidget {
 }
 
 class _infocovidState extends State<infocovid> {
-  late kota selectedkota;
+ /* late kota selectedkota;
   List <kota> daerah = [
     kota("Kota Surabaya"),
     kota("Kota Jakarta"),
@@ -28,7 +28,7 @@ class _infocovidState extends State<infocovid> {
       ));
     }
     return items;
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
      
@@ -39,7 +39,6 @@ class _infocovidState extends State<infocovid> {
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
-          _buildKota(),
           _buildStatsTabBar(),
            _tabelcovid(),
            _tabelkasus(),
@@ -59,7 +58,8 @@ class _infocovidState extends State<infocovid> {
           'Info Covid',
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 24.0,
+            fontFamily: "Kanit",
+            fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -113,7 +113,7 @@ class _infocovidState extends State<infocovid> {
       ),
     );
   }
- SliverToBoxAdapter _buildKota (){
+/* SliverToBoxAdapter _buildKota (){
    return SliverToBoxAdapter(
      child: Column(children: <Widget> [
        Container(
@@ -146,6 +146,7 @@ class _infocovidState extends State<infocovid> {
      ),
    );
  }
+ */
   SliverToBoxAdapter _tabelcovid (){
    return SliverToBoxAdapter(
      child: Column(children: <Widget> [
@@ -179,14 +180,7 @@ class _infocovidState extends State<infocovid> {
    ));
      
   }
-  Container _tips(){
-    
-  }
+  
 
   
 }
-class kota {
-String nama;
-
-  kota(this.nama);
-} */

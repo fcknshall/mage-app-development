@@ -102,7 +102,7 @@ class _LoginState extends State<Login> {
               ),
               //Continue
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 280, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 250, 20, 0),
                 child: ElevatedButton(
                   style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(const Size(370, 60)),

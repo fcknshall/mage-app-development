@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:provider/provider.dart';
+import 'package:quarantips/config/provider.dart';
 import 'config/imagecarousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,9 @@ void main() {
         statusBarColor: Colors.transparent,
         systemNavigationBarColor: Colors.transparent),
   );
-  runApp(
-    MaterialApp(
+  runApp(ChangeNotifierProvider(
+    create: (context) => EventProvider(),
+    child: MaterialApp(
       title: "Quarantips",
       home: const MyApp(),
       debugShowCheckedModeBanner: false,
@@ -22,13 +25,12 @@ void main() {
           scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1),
           visualDensity: VisualDensity.adaptivePlatformDensity),
     ),
-  );
+  ));
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
-
   State<StatefulWidget> createState() {
     return _MyAppState();
   }
@@ -45,9 +47,7 @@ class _MyAppState extends State<MyApp> {
                 left: 100, right: 100, top: 170, bottom: 80),
             child: CarouselSlider(
               items: const [
-                MyImageView(
-                  "assets/images/startpage/illustration.png"
-                  ),
+                MyImageView("assets/images/startpage/illustration.png"),
                 MyImageView("assets/images/startpage/stayhome.png")
               ],
               options: CarouselOptions(
@@ -59,13 +59,10 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           const Padding(
-              padding:
-                  EdgeInsets.only(left: 10, right: 70, top: 10, bottom: 0),
+              padding: EdgeInsets.only(left: 10, right: 70, top: 10, bottom: 0),
               child: Text("WELCOME TO QUARANTIPS",
                   style: TextStyle(
-                    fontFamily: 'Kanit',
-                    fontSize: 24,
-                    color: Colors.white))),
+                      fontFamily: 'Kanit', fontSize: 24, color: Colors.white))),
           const Padding(
               padding: EdgeInsets.only(left: 10, right: 40, top: 10, bottom: 0),
               child: Text(
@@ -79,8 +76,8 @@ class _MyAppState extends State<MyApp> {
               padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromRGBO(73, 97, 222, 1)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color.fromRGBO(73, 97, 222, 1)),
                     textStyle: MaterialStateProperty.all(
                         const TextStyle(fontSize: 30)),
                     fixedSize: MaterialStateProperty.all(const Size(350, 80)),
@@ -88,12 +85,10 @@ class _MyAppState extends State<MyApp> {
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                             side: const BorderSide(color: Colors.yellow)))),
-                child: const Text('LOGIN',
-                style: TextStyle(
-                    fontFamily: 'Kanit',
-                    fontSize: 30,
-                    color: Colors.white
-                ),
+                child: const Text(
+                  'LOGIN',
+                  style: TextStyle(
+                      fontFamily: 'Kanit', fontSize: 30, color: Colors.white),
                 ),
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Login())),
@@ -102,8 +97,8 @@ class _MyAppState extends State<MyApp> {
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromRGBO(73, 97, 222, 1)),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      const Color.fromRGBO(73, 97, 222, 1)),
                   textStyle:
                       MaterialStateProperty.all(const TextStyle(fontSize: 30)),
                   fixedSize: MaterialStateProperty.all(const Size(350, 80)),
@@ -111,11 +106,13 @@ class _MyAppState extends State<MyApp> {
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           side: const BorderSide(color: Colors.yellow)))),
-              child: const Text('DAFTAR',
-              style: TextStyle(
-                fontFamily: 'Kanit',
-                fontSize: 30,
-              ),),
+              child: const Text(
+                'DAFTAR',
+                style: TextStyle(
+                  fontFamily: 'Kanit',
+                  fontSize: 30,
+                ),
+              ),
               onPressed: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Daftar())),
             ),

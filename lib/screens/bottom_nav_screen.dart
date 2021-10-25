@@ -13,7 +13,7 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
-    infocovid(),
+    //const infocovid(),
     const Timer(),
     const Calendar(),
     const Scaffold(),

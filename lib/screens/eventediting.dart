@@ -4,6 +4,7 @@ import 'package:quarantips/config/event.dart';
 import 'package:quarantips/config/utils.dart';
 import 'package:quarantips/config/provider.dart';
 import 'package:provider/provider.dart';
+import 'profile.dart';
 
 class Aktivitas extends StatefulWidget {
   final Event? event;
@@ -331,8 +332,98 @@ class Obat extends StatefulWidget {
 }
 
 class _ObatState extends State<Obat> {
+  final titlecontroller = TextEditingController();
+  final descriptioncontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Column(
+        children: [
+          Row(
+            children: [
+              IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(Icons.arrow_back)),
+              const Text(
+                "Obat",
+                style: TextStyle(color: Colors.white, fontFamily: 'kanit'),
+              ),
+              IconButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ProfileScreen())),
+                icon: const Icon(Icons.person_outline_sharp),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('assets/images/pill2.png')),
+              IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('assets/images/tablet.png')),
+              IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('assets/images/capsule.png'))
+            ],
+          ),
+          const Padding(
+              padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+              child: Text("Nama Obat",
+                  style: TextStyle(fontFamily: 'kanit', color: Colors.white))),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+            child: TextFormField(
+              onFieldSubmitted: (_) {},
+              decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.mode_edit),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0))),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0))),
+              ),
+              controller: titlecontroller,
+              validator: (title) {
+                title != null && title.isEmpty
+                    ? 'Nama Obat tidak bisa kosong'
+                    : null;
+              },
+            ),
+          ),
+          const Padding(
+              padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+              child: Text("Deskripsi Obat",
+                  style: TextStyle(fontFamily: 'kanit', color: Colors.white))),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+            child: TextFormField(
+              onFieldSubmitted: (_) {},
+              decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.mode_edit),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0))),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0))),
+              ),
+              controller: titlecontroller,
+              validator: (title) {
+                title != null && title.isEmpty
+                    ? 'Deskripsi Obat tidak bisa kosong'
+                    : null;
+              },
+            ),
+          ),
+          Row(
+            children: [SizedBox()],
+          )
+        ],
+      ),
+    );
   }
 }

@@ -15,8 +15,8 @@ class ProfileScreen extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromRGBO(73, 97, 150, 100),
-                Color.fromRGBO(73, 97, 222, 100),
+                Color.fromRGBO(73, 97, 150, 1),
+                Color.fromRGBO(73, 97, 222, 1),
               ],
               begin: FractionalOffset.bottomCenter,
               end: FractionalOffset.topCenter,

@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'bottom_nav_screen.dart';
 import 'dart:math' as math;
 
 class Timer extends StatefulWidget {
-  const Timer({Key? key}) : super(key: key);
+  late CustomTimerController timerController = CustomTimerController();
+  Timer({Key? key, required this.timerController}) : super(key: key);
 
   @override
   _TimerState createState() => _TimerState();
@@ -22,9 +24,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 4000),
     );
 
-    animationController.dispose();
     super.initState();
-    animationController.forward();
     animationController.addListener(() {
       setState(() {
         if (animationController.status == AnimationStatus.completed) {
@@ -40,14 +40,26 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
       theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 100)),
       home: Scaffold(
-        body: Column(
+          body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
             Padding(
-                padding: const EdgeInsets.fromLTRB(30, 100, 80, 0),
+                padding: const EdgeInsets.fromLTRB(0, 30, 350, 0),
+                child: IconButton(
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BottomNavScreen()));
+                    },
+                    icon: const Icon(Icons.arrow_back))),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 80, 0),
                 child: CustomTimer(
                     from: const Duration(days: 14),
                     to: const Duration(seconds: 0),
-                    onBuildAction: CustomTimerAction.auto_start,
+                    controller: widget.timerController,
                     builder: (CustomTimerRemainingTime remaining) {
                       return Text(
                           "Semangat!\nHanya\n${remaining.days} Hari ${remaining.hours} jam ${remaining.minutes} Menit",
@@ -59,7 +71,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                     })),
             Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: AnimatedBuilder(
                   animation: animationController,
                   builder: (_, child) {
@@ -77,7 +89,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                   ),
                 )),
             const Padding(
-                padding: EdgeInsets.fromLTRB(30, 70, 100, 0),
+                padding: EdgeInsets.fromLTRB(30, 10, 100, 0),
                 child: Text(
                   "Sampai Isolasi Mandiri \nSelesai",
                   style: TextStyle(
@@ -86,10 +98,20 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                     fontSize: 24,
                     fontFamily: 'Kanit',
                   ),
-                ))
+                )),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 80, 0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      widget.timerController.start();
+                      animationController.forward();
+                    },
+                    child: const Text("Start ISOMAN",
+                        style: TextStyle(
+                            fontFamily: 'kanit', color: Colors.white))))
           ],
         ),
-      ),
+      )),
     );
   }
 }

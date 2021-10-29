@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quarantips/screens/jadwal.dart';
 import 'package:quarantips/screens/timer.dart';
+import 'package:custom_timer/custom_timer.dart';
 import 'screens.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -11,12 +12,13 @@ class BottomNavScreen extends StatefulWidget {
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
+  late CustomTimerController timerController = CustomTimerController();
+
   final List _screens = [
     const HomeScreen(),
     infocovid(),
-    const Timer(),
+    Timer(timerController: timerController),
     const Calendar(),
-    const Scaffold(),
     const Scaffold(),
     const Scaffold(),
   ];

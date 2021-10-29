@@ -14,10 +14,16 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   late CustomTimerController timerController = CustomTimerController();
 
+  @override
+  void initState() {
+    Duration timerDuration = const Duration(days: 14);
+    super.initState();
+  }
+
   final List _screens = [
     const HomeScreen(),
     infocovid(),
-    // Timer(timerController: timerController),
+    const Timer(),
     const Calendar(),
     const Scaffold(),
     const Scaffold(),

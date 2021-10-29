@@ -7,8 +7,12 @@ import 'bottom_nav_screen.dart';
 import 'dart:math' as math;
 
 class Timer extends StatefulWidget {
+<<<<<<< HEAD
   late CustomTimerController timerController = CustomTimerController();
   Timer({Key? key, required this.timerController }) : super(key: key);
+=======
+  const Timer({Key? key}) : super(key: key);
+>>>>>>> 98b38d9d36eca0e94d009d2fa46640ba112a698c
 
   @override
   _TimerState createState() => _TimerState();
@@ -16,6 +20,7 @@ class Timer extends StatefulWidget {
 
 class _TimerState extends State<Timer> with TickerProviderStateMixin {
   late AnimationController animationController;
+  late CustomTimerController timerController = CustomTimerController();
 
   @override
   void initState() {
@@ -59,7 +64,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                 child: CustomTimer(
                     from: const Duration(days: 14),
                     to: const Duration(seconds: 0),
-                    controller: widget.timerController,
+                    controller: timerController,
                     builder: (CustomTimerRemainingTime remaining) {
                       return Text(
                           "Semangat!\nHanya\n${remaining.days} Hari ${remaining.hours} jam ${remaining.minutes} Menit",
@@ -102,8 +107,19 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
             Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 80, 0),
                 child: ElevatedButton(
+                    style: ButtonStyle(
+                        fixedSize:
+                            MaterialStateProperty.all(const Size(50, 50)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    side:
+                                        const BorderSide(color: Colors.white))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color.fromRGBO(73, 97, 222, 1))),
                     onPressed: () {
-                      widget.timerController.start();
+                      timerController.start();
                       animationController.forward();
                     },
                     child: const Text("Start ISOMAN",

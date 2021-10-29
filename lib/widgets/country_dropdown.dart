@@ -18,7 +18,7 @@ class CountryDropdown extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       height: 40.0,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color.fromRGBO(105, 123, 235, 1),
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: DropdownButtonHideUnderline(
@@ -39,6 +39,7 @@ class CountryDropdown extends StatelessWidget {
                           e,
                           style: const TextStyle(
                             fontSize: 16.0,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         )

@@ -4,6 +4,7 @@ import '/config/palette.dart';
 import '/config/styles.dart';
 import '/config/data.dart';
 import '/widgets/widgets.dart';
+import 'screens.dart';
 
 class infocovid extends StatefulWidget {
   @override
@@ -37,8 +38,11 @@ class _infocovidState extends State<infocovid> {
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(),
-          _buildStatsTabBar(),
+          _tabelcovid(),
           _tabelkasus(),
+          _tabelnews(),
+          
+          
         ],
       ),
     );
@@ -61,72 +65,7 @@ class _infocovidState extends State<infocovid> {
     );
   }
 
-  SliverToBoxAdapter _buildStatsTabBar() {
-    return SliverToBoxAdapter(
-      child: DefaultTabController(
-        length: 3,
-        child: Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 10,
-          ),
-          height: 250.0,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(25.0),
-          ),
-          child: TabBar(
-            labelPadding: EdgeInsets.fromLTRB(10, 10, 10, 200),
-            indicatorPadding: EdgeInsets.fromLTRB(10, 10, 10, 180),
-            indicator: BubbleTabIndicator(
-              tabBarIndicatorSize: TabBarIndicatorSize.tab,
-              indicatorHeight: 20.0,
-              indicatorColor: Color.fromRGBO(197, 199, 196, 1),
-            ),
-            labelStyle: Styles.tabTextStyle,
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.white,
-            
-            tabs: <Widget>[
-              Text(
-                'Kasus',
-                style: TextStyle(
-                    fontFamily:"KanitLight",
-                  fontSize: 13,
-                  color: Colors.lightBlue,
-                ),
-              ),
-              Text(
-                'Sembuh',
-                style: TextStyle(
-                  fontFamily:"KanitLight",
-                  fontSize: 13,
-                  color: Colors.green,
-                ),
-              ),
-              Text(
-                'Kematian',
-                style: TextStyle(
-                    fontFamily:"KanitLight",
-                  fontSize: 13,
-                  color: Colors.black,
-                ),
-              ),
-              
-            ],
-            
-            
-             
-            
-          ),
-          
-        ),
-        
-        
-      ),
-      
-    );
-  }
+  
   
 
 /* SliverToBoxAdapter _buildKota (){
@@ -170,7 +109,7 @@ class _infocovidState extends State<infocovid> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           height: 200.0,
-          margin: EdgeInsets.all(15),
+          margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
@@ -359,87 +298,260 @@ class _infocovidState extends State<infocovid> {
       ],
     ));
   }
+  SliverToBoxAdapter _tabelcovid() {
+    return SliverToBoxAdapter(
+      child: Container(
+        width: 150,
+        height: 300,
+        margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          
+          borderRadius: BorderRadius.circular(10),
+        ),
+      
+      child: DefaultTabController(
+          
+        length: 3, 
+      
+      child: Scaffold(
+
+          appBar: TabBar(
+              labelPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            indicatorPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+           indicator: BubbleTabIndicator(
+              tabBarIndicatorSize: TabBarIndicatorSize.tab,
+              indicatorHeight: 20.0,
+              indicatorColor: Colors.white,
+              
+            ),
+              tabs: <Widget>[
+              Text(
+                'Kasus',
+                style: TextStyle(
+                    fontFamily:"KanitLight",
+                  fontSize: 13,
+                  color: Colors.lightBlue,
+                ),
+              ),
+              Text(
+                'Sembuh',
+                style: TextStyle(
+                  fontFamily:"KanitLight",
+                  fontSize: 13,
+                  color: Colors.green,
+                ),
+              ),
+              Text(
+                'Kematian',
+                style: TextStyle(
+                    fontFamily:"KanitLight",
+                  fontSize: 13,
+                  color: Colors.black,
+                ),
+              ),
+              
+            ],
+          
+          ),
+          body: TabBarView(
+            children: [
+              kasus(),
+              sembuh(),
+              kematian(),
+            ],
+          ),
+      ),
+        
+      ),
+     
+        
+      ),
+  
+
+    );
+
+  }
+  SliverToBoxAdapter _tabelnews () {
+return SliverToBoxAdapter(
+child: Column(
+  children: [
+Container(
+  
+  margin: EdgeInsets.all(20),
+  width: 350,
+  height: 115,
+  
+  decoration: BoxDecoration(
+    color: Colors.blueAccent[100],
+    borderRadius: BorderRadius.circular(20),
+     boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(73, 97, 100, 100),
+                          blurRadius:10,
+                          spreadRadius: 3,
+
+
+                        ),
+                      ]
+    
+  ),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
+      Image.asset('assets/images/sick 1.png'),
+
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Gejala - gejala \ndari Covid-19",
+          textAlign: TextAlign.center,
+
+          style: TextStyle(
+            fontFamily: "Kanit",
+            fontSize: 20,
+          ),),
+          TextButton(
+            child: 
+            Text("Baca Lebih Lanjut",style: TextStyle(
+              fontFamily: "KanitLight",
+              fontSize: 14,
+              color: Colors.black,
+              decoration: TextDecoration.underline,
+            ), ),
+          
+          
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) =>  news1()),
+          ),
+          ),
+        ],
+      ),
+    ],
+    
+  ),
+),
+Container(
+  width: 350,
+  height: 115,
+  margin: EdgeInsets.all(20),
+  decoration: BoxDecoration(
+    color: Colors.blueAccent[100],
+    borderRadius: BorderRadius.circular(20),
+     boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(73, 97, 100, 100),
+                          blurRadius:10,
+                          spreadRadius: 3,
+
+
+                        ),
+                      ]
+  ),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Image.asset('assets/images/virus.png'),
+
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Bagaimana Covid - 19 \nMenyebar",
+            textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: "Kanit",
+            fontSize: 20,
+          ),
+          ),
+         TextButton(
+            child: 
+            Text("Baca Lebih Lanjut",style: TextStyle(
+              fontFamily: "KanitLight",
+              fontSize: 14,
+              color: Colors.black,
+              decoration: TextDecoration.underline,
+            ), ),
+          
+          
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) =>  news2()),
+          ),
+          ),
+        ],
+      ),
+    ],
+    
+  ),
+),
+
+  ],
+),
+);
+  }
 
 }
-class second extends StatefulWidget {
+class kasus extends StatefulWidget {
+ 
 
   @override
-  _secondState createState() => _secondState();
+  _kasusState createState() => _kasusState();
 }
 
-class _secondState extends State<second> {
+class _kasusState extends State<kasus> {
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-        child: Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          height: 200.0,
-          margin: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-        ),
-      ],
-    ));
+    return Container(
+     
+       margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+color: Colors.white,
+borderRadius: BorderRadius.circular(20)
+      ),
+      child: Image.asset('assets/images/kasus.png'),
+    );
   }
-      
 }
-
-class first extends StatefulWidget {
+class sembuh extends StatefulWidget {
+ 
 
   @override
-  _firstState createState() => _firstState();
+  _sembuhState createState() => _sembuhState();
 }
 
-class _firstState extends State<first> {
+class _sembuhState extends State<sembuh> {
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-        child: Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          height: 200.0,
-          margin: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            color: Colors.orange,
-            borderRadius: BorderRadius.circular(20.0),
-            
-          ),
-        ),
-      ],
-    ));
-  }
+    return Container(
       
+      margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+color: Colors.white,
+borderRadius: BorderRadius.circular(20)
+      ),
+      child: Image.asset('assets/images/Group 17.png'),
+    );
+  }
 }
-class third extends StatefulWidget {
+class kematian extends StatefulWidget {
+ 
 
   @override
-  _thirdState createState() => _thirdState();
+  _kematianState createState() => _kematianState();
 }
 
-class _thirdState extends State<third> {
+class _kematianState extends State<kematian> {
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-        child: Column(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-          height: 200.0,
-          margin: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-            
-          ),
-        ),
-      ],
-    ));
+    return Container(
+     
+       margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+color: Colors.white,
+borderRadius: BorderRadius.circular(20)
+      ),
+      child: Image.asset('assets/images/mati.png'),
+    );
   }
-      
 }
+
+
 

@@ -28,14 +28,14 @@ class _CalendarState extends State<Calendar> {
                 style: TextStyle(
                     fontFamily: 'kanit', fontSize: 18, color: Colors.white))),
         SfCalendar(
-          dataSource: EventDataSource(events),
+          dataSource: EventAktivitasDataSource(events),
           onLongPress: (details) {
             final provider = Provider.of<EventProvider>(context, listen: false);
 
             provider.setDate(details.date!);
 
             showModalBottomSheet(
-                context: context, builder: (context) => TaskWidget());
+                context: context, builder: (context) => const TaskWidget());
           },
           todayHighlightColor: Colors.blue[800],
           backgroundColor: Colors.white,
@@ -72,8 +72,7 @@ class _CalendarState extends State<Calendar> {
                           fontSize: 12,
                           color: Colors.black)),
                   onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const Aktivitas()),
+                        MaterialPageRoute(builder: (context) => const Obat()),
                       ))),
           SpeedDialChild(
               child: ElevatedButton(

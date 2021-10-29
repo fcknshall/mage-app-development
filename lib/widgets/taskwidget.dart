@@ -5,9 +5,13 @@ import 'package:quarantips/config/provider.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'eventviewingpage.dart';
+import 'package:quarantips/config/event.dart';
+import 'eventobatviewingpage.dart';
 
 class TaskWidget extends StatefulWidget {
-  const TaskWidget({Key? key}) : super(key: key);
+  final Event? checkObat;
+
+  const TaskWidget({Key? key, this.checkObat}) : super(key: key);
 
   @override
   _TaskWidgetState createState() => _TaskWidgetState();
@@ -37,7 +41,7 @@ class _TaskWidgetState extends State<TaskWidget> {
               fontSize: 16)),
       child: SfCalendar(
         view: CalendarView.timelineDay,
-        dataSource: EventDataSource(provider.events),
+        dataSource: EventAktivitasDataSource(provider.events),
         initialDisplayDate: provider.selectDate,
         headerHeight: 0,
         todayHighlightColor: Colors.black,
@@ -47,9 +51,15 @@ class _TaskWidgetState extends State<TaskWidget> {
           if (details.appointments == null) return;
 
           final event = details.appointments!.first;
+          final isObat = widget.checkObat?.isObat != false;
 
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => EventViewingPage(event: event)));
+          if (isObat) {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => EventViewingPage(event: event)));
+          } else {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => EventObatViewingPage(event: event)));
+          }
         },
       ),
     );

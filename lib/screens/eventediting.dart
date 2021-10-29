@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quarantips/config/event.dart';
@@ -61,15 +63,32 @@ class _AktivitasState extends State<Aktivitas> {
               child: Form(
                 key: _formKey,
                 child: Column(children: <Widget>[
-                  const Padding(
-                      padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
-                      child: Text(
-                        "AKTIVITAS",
-                        style: TextStyle(
-                            fontFamily: 'Kanit',
-                            fontSize: 30,
-                            color: Color.fromRGBO(227, 248, 251, 1)),
-                      )),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            iconSize: 28,
+                            onPressed: () => Navigator.pop(context),
+                            icon: const Icon(Icons.arrow_back)),
+                        const Text(
+                          "Aktivitas",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'kanit',
+                              fontSize: 24),
+                        ),
+                        IconButton(
+                          iconSize: 28,
+                          onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => const ProfileScreen())),
+                          icon: const Icon(Icons.person_outline_sharp),
+                        )
+                      ],
+                    ),
+                  ),
                   const Padding(
                       padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
                       child: Text("Nama Aktivitas",
@@ -306,6 +325,7 @@ class _AktivitasState extends State<Aktivitas> {
         description: descriptioncontroller.text,
         from: fromDate,
         to: toDate,
+        isObat: false,
         location: locationcontroller.text,
         isAllDay: false,
       );
@@ -325,48 +345,94 @@ class _AktivitasState extends State<Aktivitas> {
 }
 
 class Obat extends StatefulWidget {
-  const Obat({Key? key}) : super(key: key);
+  final Event? event;
+
+  const Obat({Key? key, this.event}) : super(key: key);
 
   @override
   _ObatState createState() => _ObatState();
 }
 
 class _ObatState extends State<Obat> {
+  final _formKey = GlobalKey<FormState>();
+  late String jenisObat;
+  late String status;
+  late int frekuensi;
+  late int durasi;
+  String dropdownDurasiValue = '1';
+  String dropdownDurasiTypeValue = 'Hari';
+  String dropdownFrekuensiValue = '1x';
+  String dropdownFrekuensiTypeValue = 'PerHari';
   final titlecontroller = TextEditingController();
   final descriptioncontroller = TextEditingController();
 
   @override
+  void dispose() {
+    titlecontroller.dispose();
+    descriptioncontroller.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        body: SingleChildScrollView(
+      child: Column(
         children: [
-          Row(
-            children: [
-              IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: const Icon(Icons.arrow_back)),
-              const Text(
-                "Obat",
-                style: TextStyle(color: Colors.white, fontFamily: 'kanit'),
-              ),
-              IconButton(
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ProfileScreen())),
-                icon: const Icon(Icons.person_outline_sharp),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    iconSize: 28,
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.arrow_back)),
+                const Text(
+                  "Obat",
+                  style: TextStyle(
+                      color: Colors.white, fontFamily: 'kanit', fontSize: 24),
+                ),
+                IconButton(
+                  iconSize: 28,
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ProfileScreen())),
+                  icon: const Icon(Icons.person_outline_sharp),
+                )
+              ],
+            ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/pill2.png')),
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/tablet.png')),
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/capsule.png'))
+              Expanded(
+                  child: SizedBox(
+                      height: 100.0,
+                      child: IconButton(
+                          iconSize: 200,
+                          onPressed: () {
+                            jenisObat = 'Pill';
+                          },
+                          icon: Image.asset('assets/images/pill2.png')))),
+              Expanded(
+                  child: SizedBox(
+                      height: 100.0,
+                      child: IconButton(
+                          iconSize: 200,
+                          onPressed: () {
+                            jenisObat = 'Tablet';
+                          },
+                          icon: Image.asset('assets/images/tablet.png')))),
+              Expanded(
+                  child: SizedBox(
+                      height: 100.0,
+                      child: IconButton(
+                          iconSize: 200,
+                          onPressed: () {
+                            jenisObat = 'Capsule';
+                          },
+                          icon: Image.asset('assets/images/capsule.png')))),
             ],
           ),
           const Padding(
@@ -411,19 +477,230 @@ class _ObatState extends State<Obat> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(25.0))),
               ),
-              controller: titlecontroller,
-              validator: (title) {
-                title != null && title.isEmpty
+              controller: descriptioncontroller,
+              validator: (description) {
+                description != null && description.isEmpty
                     ? 'Deskripsi Obat tidak bisa kosong'
                     : null;
               },
             ),
           ),
-          Row(
-            children: [SizedBox()],
-          )
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      const Text("Durasi",
+                          style: TextStyle(
+                              fontFamily: 'kanit', color: Colors.black)),
+                      Row(
+                        children: [
+                          const Icon(Icons.query_builder),
+                          DropdownButton<String>(
+                            value: dropdownDurasiValue,
+                            icon: const Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            style: const TextStyle(color: Colors.black),
+                            underline: Container(
+                              height: 1,
+                              color: Colors.black,
+                            ),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropdownDurasiValue = newValue!;
+                              });
+                            },
+                            items: <String>['1', '2', '3', '4', '5', '6', '7']
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                          DropdownButton<String>(
+                            value: dropdownDurasiTypeValue,
+                            icon: const Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            style: const TextStyle(color: Colors.black),
+                            underline: Container(
+                              height: 1,
+                              color: Colors.black,
+                            ),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropdownDurasiTypeValue = newValue!;
+                              });
+                            },
+                            items: <String>['Hari', 'Minggu', 'Bulan']
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      const Text("Frekuensi",
+                          style: TextStyle(
+                              fontFamily: 'kanit', color: Colors.black)),
+                      Row(
+                        children: [
+                          const Icon(Icons.calendar_today_outlined),
+                          DropdownButton<String>(
+                            value: dropdownFrekuensiValue,
+                            icon: const Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            style: const TextStyle(color: Colors.black),
+                            underline: Container(
+                              height: 1,
+                              color: Colors.black,
+                            ),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropdownFrekuensiValue = newValue!;
+                              });
+                            },
+                            items: <String>['1x', '2x', '3x']
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                          DropdownButton<String>(
+                            value: dropdownFrekuensiTypeValue,
+                            icon: const Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            style: const TextStyle(color: Colors.black),
+                            underline: Container(
+                              height: 1,
+                              color: Colors.black,
+                            ),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropdownFrekuensiTypeValue = newValue!;
+                              });
+                            },
+                            items: <String>['PerHari', 'PerMinggu', 'PerBulan']
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Text("Sebelum atau sesudah makan?",
+                          style: TextStyle(
+                              fontFamily: 'kanit', color: Colors.black)),
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              status = 'Sebelum';
+                            },
+                            child: const Text("Sebelum",
+                                style: TextStyle(
+                                    fontFamily: 'kanit', color: Colors.white)),
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    const Color.fromRGBO(104, 128, 255, 100))),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              status = 'Sesudah';
+                            },
+                            child: const Text("Sesudah",
+                                style: TextStyle(
+                                    fontFamily: 'kanit', color: Colors.white)),
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    const Color.fromRGBO(104, 128, 255, 100))),
+                          ),
+                        ]),
+                  ],
+                ),
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
+              child: ElevatedButton(
+                  onPressed: saveForm,
+                  child: const Text("Save",
+                      style:
+                          TextStyle(fontFamily: 'kanit', color: Colors.white))))
         ],
       ),
-    );
+    ));
+  }
+
+  Future saveForm() async {
+    final isTitleValid = _formKey;
+
+    // ignore: unnecessary_null_comparison
+    if (isTitleValid != null) {
+      final event = Event(
+          title: titlecontroller.text,
+          description: descriptioncontroller.text,
+          isObat: true,
+          durasi: dropdownDurasiValue,
+          durasiType: dropdownDurasiTypeValue,
+          frekuensi: dropdownFrekuensiValue,
+          frekuensiType: dropdownFrekuensiTypeValue,
+          from: DateTime.now(),
+          to: DateTime.now().add(const Duration(hours: 2)),
+          jenisObat: jenisObat,
+          status: status);
+
+      final isEditing = widget.event != null;
+      final provider = Provider.of<EventProvider>(context, listen: false);
+
+      if (isEditing) {
+        provider.editEvent(event, widget.event!);
+        Navigator.of(context).pop();
+      } else {
+        provider.addEvent(event);
+      }
+      Navigator.of(context).pop();
+    }
   }
 }

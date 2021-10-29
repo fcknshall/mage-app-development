@@ -17,7 +17,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
     infocovid(),
-    Timer(timerController: timerController),
+    // Timer(timerController: timerController),
     const Calendar(),
     const Scaffold(),
     const Scaffold(),
@@ -44,7 +44,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           Icons.av_timer_rounded,
           Icons.fact_check_outlined,
           Icons.event_note,
-          Icons.window_rounded
+          
         ]
             .asMap()
             .map((key, value) => MapEntry(

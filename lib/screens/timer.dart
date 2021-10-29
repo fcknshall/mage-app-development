@@ -8,7 +8,7 @@ import 'dart:math' as math;
 
 class Timer extends StatefulWidget {
   late CustomTimerController timerController = CustomTimerController();
-  Timer({Key? key, required this.timerController}) : super(key: key);
+  Timer({Key? key, required this.timerController }) : super(key: key);
 
   @override
   _TimerState createState() => _TimerState();

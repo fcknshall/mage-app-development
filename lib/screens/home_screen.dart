@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _country = 'INA';
+  
 
   @override
   Widget build(BuildContext context) {
@@ -141,9 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Color.fromRGBO(245, 253, 104, 1),
             ),),
             ),
-            onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) =>  const Timer()) ,
-      ),
+            
             ),
           ],
         ),
@@ -410,7 +408,7 @@ mainAxisAlignment: MainAxisAlignment.end,
     GestureDetector(
        child: Container(
         width: 290,
-        height: 140,
+        height: 150,
         margin: EdgeInsets.fromLTRB(20, 10, 10, 20),
         decoration: BoxDecoration(
           color: Colors.transparent,
@@ -421,8 +419,6 @@ mainAxisAlignment: MainAxisAlignment.end,
                           blurRadius:15,
                           
                           offset: Offset(0, 7),
-
-
                         ),
                       ]
         ),
@@ -437,11 +433,20 @@ mainAxisAlignment: MainAxisAlignment.end,
     GestureDetector(
       child: Container(
         width: 290,
-        height: 140,
+        height: 150,
         margin: EdgeInsets.fromLTRB(20, 10, 10, 20),
         decoration: BoxDecoration(
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(20)
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(73, 97, 100, 100),
+                          blurRadius:15,
+                          
+                          offset: Offset(0, 7),
+                        ),
+                      ]
+          
         ),
          child: Image.asset('assets/images/zaxis.png'),
       ),
@@ -452,13 +457,21 @@ mainAxisAlignment: MainAxisAlignment.end,
       GestureDetector(
      child: Container(
         width: 290,
-        height: 140,
+        height: 150,
         margin: EdgeInsets.fromLTRB(20, 10, 10, 20),
         decoration: BoxDecoration(
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(20)
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(73, 97, 100, 100),
+                          blurRadius:15,
+                          
+                          offset: Offset(0, 7),
+                        ),
+                      ]
         ),
-        child: Image.asset('assets/images/berita 3 .png'),
+        child: Image.asset('assets/images/quarantips.png'),
       ),
       
       ),

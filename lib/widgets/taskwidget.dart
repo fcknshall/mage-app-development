@@ -53,13 +53,11 @@ class _TaskWidgetState extends State<TaskWidget> {
           final event = details.appointments!.first;
           final isObat = widget.checkObat?.isObat != false;
 
-          if (isObat) {
+          isObat == true ?
             Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => EventObatViewingPage(event: event))):
+           Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => EventViewingPage(event: event)));
-          } else {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => EventObatViewingPage(event: event)));
-          }
         },
       ),
     );

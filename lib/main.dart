@@ -44,20 +44,21 @@ class _MyAppState extends State<MyApp> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(
-                left: 100, right: 100, top: 170, bottom: 80),
+                 top: 100, bottom: 0),
             child: CarouselSlider(
               items: const [
                 MyImageView("assets/images/startpage/illustration.png"),
                 MyImageView("assets/images/startpage/stayhome.png")
               ],
               options: CarouselOptions(
-                height: 200.0,
+                height: 250.0,
                 autoPlayInterval: const Duration(seconds: 5),
                 autoPlay: true,
                 enableInfiniteScroll: true,
               ),
             ),
           ),
+          SizedBox(height: 140,),
           const Padding(
               padding: EdgeInsets.only(left: 10, right: 70, top: 10, bottom: 0),
               child: Text("WELCOME TO QUARANTIPS",

@@ -23,10 +23,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     const HomeScreen(),
     infocovid(),
-    const Timer(),
+    //const Timer(),
     const Calendar(),
-    const Scaffold(),
-    const Scaffold(),
+     Scaffold(),
+     bantuan(),
+    
   ];
   int _currentIndex = 0;
 
@@ -39,12 +40,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         onTap: (index) => setState(() => _currentIndex = index),
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
+        
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
+
         elevation: 0.0,
         items: [
+          
           Icons.home,
           Icons.coronavirus_outlined,
           Icons.av_timer_rounded,
@@ -64,7 +68,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: _currentIndex == key
-                            ? Colors.blue[600]
+                            ? Colors.blue
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(20.0),
                       ),

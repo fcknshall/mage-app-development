@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quarantips/loginPage/daftar.dart';
 import 'package:quarantips/loginPage/login.dart';
+import 'dart:async';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -19,13 +20,75 @@ void main() {
     create: (context) => EventProvider(),
     child: MaterialApp(
       title: "Quarantips",
-      home: const MyApp(),
+      home: const Splashscreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromRGBO(73, 97, 222, 1),
           visualDensity: VisualDensity.adaptivePlatformDensity),
     ),
   ));
+}
+
+class Splashscreen extends StatefulWidget {
+  const Splashscreen({Key? key}) : super(key: key);
+
+  @override
+  State<Splashscreen> createState() => _SplashscreenState();
+}
+
+class _SplashscreenState extends State<Splashscreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(seconds: 5),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => const MyApp())));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color.fromRGBO(73, 97, 222, 1),
+      child: Column(children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Image.asset(
+            'assets/images/splash_screen.png',
+            width: 250,
+          ),
+        ),
+        const Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Text('Quarantips',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold))),
+        const Padding(
+            padding: EdgeInsets.only(top: 260, right: 250),
+            child: Text('Terkoneksi dengan',
+                style: TextStyle(
+                    fontFamily: 'kanitlight',
+                    fontSize: 16,
+                    color: Colors.white))),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset('assets/images/pp.png', width: 80),
+              Image.asset('assets/images/Zaxi.png', width: 80),
+              Image.asset(
+                'assets/images/mage-title-white.png',
+                width: 100,
+              ),
+            ],
+          ),
+        )
+      ]),
+    );
+  }
 }
 
 class MyApp extends StatefulWidget {

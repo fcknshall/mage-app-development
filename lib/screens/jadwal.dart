@@ -29,7 +29,7 @@ class _CalendarState extends State<Calendar> {
                     fontFamily: 'kanit', fontSize: 18, color: Colors.white))),
         SfCalendar(
           dataSource: EventAktivitasDataSource(events),
-          onLongPress: (details) {
+          onTap: (details) {
             final provider = Provider.of<EventProvider>(context, listen: false);
 
             provider.setDate(details.date!);
@@ -54,7 +54,7 @@ class _CalendarState extends State<Calendar> {
         visible: true,
         curve: Curves.bounceInOut,
         children: [
-          SpeedDialChild(
+          /* SpeedDialChild(
               child: ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
@@ -73,7 +73,7 @@ class _CalendarState extends State<Calendar> {
                           color: Colors.black)),
                   onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => const Obat()),
-                      ))),
+                      ))), */
           SpeedDialChild(
               child: ElevatedButton(
                   style: ButtonStyle(

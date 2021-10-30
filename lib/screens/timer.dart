@@ -7,12 +7,7 @@ import 'bottom_nav_screen.dart';
 import 'dart:math' as math;
 
 class Timer extends StatefulWidget {
-<<<<<<< HEAD
-  late CustomTimerController timerController = CustomTimerController();
-  Timer({Key? key, required this.timerController }) : super(key: key);
-=======
   const Timer({Key? key}) : super(key: key);
->>>>>>> 98b38d9d36eca0e94d009d2fa46640ba112a698c
 
   @override
   _TimerState createState() => _TimerState();
@@ -88,7 +83,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.asset('assets/images/timerpage/hourglass1.png'),
+                      Image.asset('assets/images/hourglass1.png'),
                     ],
                   ),
                 )),
@@ -104,11 +99,11 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                   ),
                 )),
             Padding(
-                padding: const EdgeInsets.fromLTRB(30, 0, 80, 0),
+                padding: const EdgeInsets.fromLTRB(80, 0, 80, 0),
                 child: ElevatedButton(
                     style: ButtonStyle(
                         fixedSize:
-                            MaterialStateProperty.all(const Size(50, 50)),
+                            MaterialStateProperty.all(const Size(85, 50)),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(

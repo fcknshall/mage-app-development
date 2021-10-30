@@ -5,7 +5,7 @@ class Event {
   final String description;
   final DateTime from;
   final DateTime to;
-  final String? location;
+  final String location;
   final Color backgroundColor;
   final bool isAllDay;
   final bool isObat;
@@ -21,12 +21,12 @@ class Event {
     required this.description,
     required this.from,
     required this.to,
-    this.isObat = false,
+    required this.isObat,
     this.durasiType,
     this.durasi,
     this.frekuensi,
     this.frekuensiType,
-    this.location,
+    required this.location,
     this.status,
     this.jenisObat,
     this.backgroundColor = Colors.lightBlue,

@@ -98,6 +98,19 @@ class EventViewingPage extends StatelessWidget {
             )),
           ],
         ),
+        const Padding(
+            padding: EdgeInsets.fromLTRB(0, 25, 300, 0),
+            child: Text("Lokasi",
+                style: TextStyle(
+                    fontFamily: 'kanit',
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18))),
+        Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 280, 0),
+            child: Text(event.location,
+                style:
+                    const TextStyle(fontFamily: 'kanit', color: Colors.white))),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

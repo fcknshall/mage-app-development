@@ -316,6 +316,7 @@ class _AktivitasState extends State<Aktivitas> {
         onTap: onClicked,
       );
 
+  // NOTE FOR AKTIVITAS=====================
   Future saveForm() async {
     final isTitleValid = _formKey.currentState!.validate();
 
@@ -672,7 +673,7 @@ class _ObatState extends State<Obat> {
       ),
     ));
   }
-
+  // NOTE FOR OBAT==================
   Future saveForm() async {
     final isTitleValid = _formKey;
 

@@ -50,7 +50,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           Icons.av_timer_rounded,
           Icons.fact_check_outlined,
           Icons.event_note,
-          Icons.window_rounded
+          
         ]
             .asMap()
             .map((key, value) => MapEntry(

@@ -25,13 +25,12 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
     );
 
     super.initState();
-    animationController.addListener(() {
-      setState(() {
-        if (animationController.status == AnimationStatus.completed) {
-          animationController.repeat();
-        }
-      });
-    });
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -116,6 +115,14 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                     onPressed: () {
                       timerController.start();
                       animationController.forward();
+                      animationController.addListener(() {
+                        setState(() {
+                          if (animationController.status ==
+                              AnimationStatus.completed) {
+                            animationController.repeat();
+                          }
+                        });
+                      });
                     },
                     child: const Text("Start ISOMAN",
                         style: TextStyle(

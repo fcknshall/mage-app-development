@@ -110,7 +110,7 @@ class ProfileScreen extends StatelessWidget {
                                               ),
                                             ),
                                             Text(
-                                              '10',
+                                              '2',
                                               style: TextStyle(
                                                 color: Color.fromRGBO(
                                                     39, 105, 171, 1),
@@ -198,7 +198,7 @@ class ProfileScreen extends StatelessWidget {
                     width: width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
+                      color: Colors.white70,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -223,10 +223,14 @@ class ProfileScreen extends StatelessWidget {
                           ),
                           Container(
                             height: height * 0.15,
+                            padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Colors.grey,
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(30),
+                              
+                              
                             ),
+child: Image.asset("assets/images/Group 19.png")
                           ),
                           SizedBox(
                             height: 10,
@@ -234,9 +238,10 @@ class ProfileScreen extends StatelessWidget {
                           Container(
                             height: height * 0.15,
                             decoration: BoxDecoration(
-                              color: Colors.grey,
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(30),
                             ),
+                            child: Image.asset("assets/images/Group 20.png")
                           ),
                         ],
                       ),

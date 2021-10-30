@@ -7,12 +7,7 @@ import 'bottom_nav_screen.dart';
 import 'dart:math' as math;
 
 class Timer extends StatefulWidget {
-<<<<<<< HEAD
-  late CustomTimerController timerController = CustomTimerController();
-  Timer({Key? key, required this.timerController }) : super(key: key);
-=======
   const Timer({Key? key}) : super(key: key);
->>>>>>> 98b38d9d36eca0e94d009d2fa46640ba112a698c
 
   @override
   _TimerState createState() => _TimerState();

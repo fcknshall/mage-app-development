@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quarantips/screens/news/mage.dart';
+import 'package:quarantips/screens/news/zaxis.dart';
 import 'package:quarantips/screens/screens.dart';
 import 'package:quarantips/screens/timer.dart';
 import '/widgets/widgets.dart';
@@ -103,7 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color.fromRGBO(245, 253, 104, 1),
             ),
           ),
-          Container(
+          GestureDetector(
+          child : Container(
             width: 350,
             height: 150,
             margin: const EdgeInsets.fromLTRB(20, 10, 20, 40),
@@ -117,13 +120,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     offset: Offset(0, 5),
                   ),
                 ]),
-            child: Column(
+             child : Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                GestureDetector(
-                  child: Container(
+                
+                   Container(
                     margin: const EdgeInsets.all(5),
-                    child: const Text(
+                     child : const Text(
                       "Sisa Waktu Karantina Anda                 \nTinggal : ",
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -132,15 +135,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromRGBO(245, 253, 104, 1),
                       ),
                     ),
+                  
+                  
                   ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) =>  news1()),
-                  ),
-                ),
+                
               ],
             ),
           ),
+          onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) =>  news1()),),
+          ),
         ],
+      
       ),
     );
   }
@@ -349,6 +355,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(20)),
                     child: Image.asset('assets/images/berita 3 .png'),
                   ),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => news5()),
+                  ),
                 ),
               ],
             ),
@@ -406,8 +415,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Image.asset('assets/images/mage.png'),
                   ),
                   onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => news3()),
+                    MaterialPageRoute(builder: (context) => mage()),
                   ),
+                  
                 ),
                 GestureDetector(
                   child: Container(
@@ -416,11 +426,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: const EdgeInsets.fromLTRB(20, 10, 10, 20),
                     decoration: BoxDecoration(
                         color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromRGBO(73, 97, 100, 100),
+                            blurRadius: 15,
+                            offset: Offset(0, 7),
+                          ),
+                        ]
+                        
+                        ),
                     child: Image.asset('assets/images/zaxis.png'),
                   ),
                   onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => news4()),
+                    MaterialPageRoute(builder: (context) => zaxis()),
                   ),
                 ),
                 GestureDetector(
@@ -430,9 +449,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: const EdgeInsets.fromLTRB(20, 10, 10, 20),
                     decoration: BoxDecoration(
                         color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Image.asset('assets/images/berita 3 .png'),
+                        borderRadius: BorderRadius.circular(20)
+                        ,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromRGBO(73, 97, 100, 100),
+                            blurRadius: 15,
+                            offset: Offset(0, 7),
+                          ),
+                        ]
+                        ),
+                    child: Image.asset('assets/images/quarantips.png'),
                   ),
+                    onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => quarantips()),
+                    ),
                 ),
               ],
             ),

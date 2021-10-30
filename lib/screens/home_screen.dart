@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quarantips/screens/news/mage.dart';
 import 'package:quarantips/screens/news/zaxis.dart';
 import 'package:quarantips/screens/screens.dart';
-import 'package:quarantips/screens/timer.dart';
+import 'package:quarantips/screens/eventediting.dart';
 import '/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -138,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   
                   
                   ),
+                 
                 
               ],
             ),
@@ -199,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => news1()),
+                    MaterialPageRoute(builder: (context) => const Aktivitas()),
                   ),
                 ),
                 GestureDetector(

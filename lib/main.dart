@@ -43,34 +43,33 @@ class _MyAppState extends State<MyApp> {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(
-                 top: 100, bottom: 0),
+            padding: const EdgeInsets.only(top: 100, bottom: 0),
             child: CarouselSlider(
               items: const [
-                MyImageView("assets/images/startpage/illustration.png"),
-                MyImageView("assets/images/startpage/stayhome.png")
+                MyImageView('assets/images/startpage/punya-tavi.png'),
+                MyImageView("assets/images/startpage/stay-home.png"),
+                MyImageView("assets/images/startpage/sick-girl.png"),
               ],
               options: CarouselOptions(
-                height: 250.0,
+                height: 285.0,
                 autoPlayInterval: const Duration(seconds: 5),
                 autoPlay: true,
                 enableInfiniteScroll: true,
               ),
             ),
           ),
-          SizedBox(height: 140,),
           const Padding(
-              padding: EdgeInsets.only(left: 10, right: 70, top: 10, bottom: 0),
+              padding: EdgeInsets.only(left: 10, right: 70, top: 30, bottom: 0),
               child: Text("WELCOME TO QUARANTIPS",
                   style: TextStyle(
                       fontFamily: 'Kanit', fontSize: 24, color: Colors.white))),
           const Padding(
               padding: EdgeInsets.only(left: 10, right: 40, top: 10, bottom: 0),
               child: Text(
-                  "Karena kami ada disini untuk menemani mu di perjalanan\nkamu saat isolasi mandiri",
+                  "Karena kami ada disini untuk menemani mu di perjalanan kamu saat isolasi mandiri",
                   style: TextStyle(
                     fontFamily: 'KanitLight',
-                    fontSize: 13,
+                    fontSize: 16,
                     color: Colors.white,
                   ))),
           Padding(

@@ -34,9 +34,10 @@ class ProfileScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        AntDesign.arrowleft,
+                      IconButton(
                         color: Colors.white,
+                        icon: Icon(AntDesign.arrowleft),
+                        onPressed: () => Navigator.pop(context),
                       ),
                       Icon(
                         AntDesign.logout,

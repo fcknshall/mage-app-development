@@ -25,13 +25,12 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
     );
 
     super.initState();
-    animationController.addListener(() {
-      setState(() {
-        if (animationController.status == AnimationStatus.completed) {
-          animationController.repeat();
-        }
-      });
-    });
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -84,7 +83,7 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.asset('assets/images/timerpage/hourglass1.png'),
+                      Image.asset('assets/images/hourglass1.png'),
                     ],
                   ),
                 )),
@@ -100,11 +99,11 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                   ),
                 )),
             Padding(
-                padding: const EdgeInsets.fromLTRB(30, 0, 80, 0),
+                padding: const EdgeInsets.fromLTRB(80, 0, 80, 0),
                 child: ElevatedButton(
                     style: ButtonStyle(
                         fixedSize:
-                            MaterialStateProperty.all(const Size(50, 50)),
+                            MaterialStateProperty.all(const Size(85, 50)),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
@@ -116,6 +115,14 @@ class _TimerState extends State<Timer> with TickerProviderStateMixin {
                     onPressed: () {
                       timerController.start();
                       animationController.forward();
+                      animationController.addListener(() {
+                        setState(() {
+                          if (animationController.status ==
+                              AnimationStatus.completed) {
+                            animationController.repeat();
+                          }
+                        });
+                      });
                     },
                     child: const Text("Start ISOMAN",
                         style: TextStyle(

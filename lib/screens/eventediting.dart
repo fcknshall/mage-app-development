@@ -216,8 +216,8 @@ class _AktivitasState extends State<Aktivitas> {
                                 BorderRadius.all(Radius.circular(25.0))),
                       ),
                       controller: locationcontroller,
-                      validator: (title) {
-                        title != null && title.isEmpty
+                      validator: (location) {
+                        location != null && location.isEmpty
                             ? 'Lokasi tidak bisa kosong'
                             : null;
                       },
@@ -324,10 +324,10 @@ class _AktivitasState extends State<Aktivitas> {
       final event = Event(
         title: titlecontroller.text,
         description: descriptioncontroller.text,
+        location: locationcontroller.text,
         from: fromDate,
         to: toDate,
         isObat: false,
-        location: locationcontroller.text,
         isAllDay: false,
       );
 
@@ -345,7 +345,7 @@ class _AktivitasState extends State<Aktivitas> {
   }
 }
 
-class Obat extends StatefulWidget {
+/* class Obat extends StatefulWidget {
   final Event? event;
 
   const Obat({Key? key, this.event}) : super(key: key);
@@ -673,6 +673,7 @@ class _ObatState extends State<Obat> {
       ),
     ));
   }
+
   // NOTE FOR OBAT==================
   Future saveForm() async {
     final isTitleValid = _formKey;
@@ -705,3 +706,4 @@ class _ObatState extends State<Obat> {
     }
   }
 }
+ */

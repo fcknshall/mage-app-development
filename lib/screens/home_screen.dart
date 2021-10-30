@@ -104,12 +104,14 @@ class _HomeScreenState extends State<HomeScreen> {
               fontSize: 24,
               color: Color.fromRGBO(245, 253, 104, 1),
             ),
+          
           ),
           GestureDetector(
           child : Container(
             width: 350,
             height: 150,
             margin: const EdgeInsets.fromLTRB(20, 10, 20, 40),
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 color: const Color.fromRGBO(105, 123, 235, 1),
                 borderRadius: BorderRadius.circular(20),
@@ -135,16 +137,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromRGBO(245, 253, 104, 1),
                       ),
                     ),
+                    
                   
                   
                   ),
-                 
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.end,
+                   
+                    children: [
+                   const Text(
+                      "\n14 Hari 59 Jam ",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontFamily: "Kanit",
+                        fontSize: 20,
+                        color: Color.fromRGBO(245, 253, 104, 1),
+                      ),
+                    ),
+                 ],
+                 ),
                 
               ],
             ),
           ),
-          onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) =>  news1()),),
+          
           ),
         ],
       
@@ -234,8 +250,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => news1()),
+                 onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Aktivitas()),
                   ),
                 ),
                 GestureDetector(
@@ -269,8 +285,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => news1()),
+                 onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Aktivitas()),
                   ),
                 ),
               ],
